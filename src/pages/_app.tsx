@@ -2,10 +2,11 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { theme } from "@/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider>
+    <MantineProvider theme={theme}>
       <Component {...pageProps} />
     </MantineProvider>
   );

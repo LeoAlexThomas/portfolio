@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <Space h={20} />
       <Stack
-        maw={1600}
+        maw={1200}
         mx="auto"
         px={30}
         pb={20}

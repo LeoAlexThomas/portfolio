@@ -59,7 +59,7 @@ const Header = () => {
         boxShadow: "0px 4px 12px #00000020",
       }}
     >
-      <Group w="100%" maw={1600} mx="auto" justify="space-between" px={30}>
+      <Group w="100%" maw={1200} mx="auto" justify="space-between" px={30}>
         <Box
           p={4}
           style={{
