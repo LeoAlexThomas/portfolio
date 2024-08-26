@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import { Box, Grid, Stack, Text } from "@mantine/core";
+import { Space, Stack } from "@mantine/core";
 import Header from "@/components/Header";
-
-const inter = Inter({ subsets: ["latin"] });
+import SkillContent from "@/components/Skills";
+import PersonalInfo from "@/components/PersonalInfo";
 
 export default function Home() {
   return (
@@ -15,16 +14,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Box h="100%" ff="Roboto" maw={1600} mx="auto" p={10}>
-        <Grid>
-          <Grid.Col>
-            <Stack>
-              <Text>Leo Alex Thomas</Text>
-              <Text>Frontend Developer</Text>
-            </Stack>
-          </Grid.Col>
-        </Grid>
-      </Box>
+      <Space h={20} />
+      <Stack
+        maw={1600}
+        mx="auto"
+        px={30}
+        pb={20}
+        style={{
+          overflow: "hidden",
+        }}
+      >
+        <PersonalInfo />
+        <SkillContent />
+      </Stack>
     </>
   );
 }

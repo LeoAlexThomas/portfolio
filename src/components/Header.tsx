@@ -2,49 +2,61 @@ import { Avatar, Box, Group, Text } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface NavLink {
   label: string;
-  url: string;
+  id: HeaderEnum;
 }
 
 const navLinks: NavLink[] = [
   {
     label: "Home",
-    url: `/`,
+    id: HeaderEnum.home,
   },
   {
     label: "Projects",
-    url: `/#${HeaderEnum.project}`,
+    id: HeaderEnum.project,
   },
   {
     label: "Skills",
-    url: `/#${HeaderEnum.skills}`,
+    id: HeaderEnum.skills,
   },
   {
     label: "Experiences",
-    url: `/#${HeaderEnum.experience}`,
+    id: HeaderEnum.experience,
   },
   {
     label: "Contact",
-    url: `/#${HeaderEnum.contact}`,
+    id: HeaderEnum.contact,
   },
 ];
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState<string>(navLinks[0].url);
+  const [activeTab, setActiveTab] = useState<string>(navLinks[0].id);
+  const router = useRouter();
 
   const links = navLinks.map((link, index) => (
-    <Link key={index} href={link.url}>
-      <Text
-        fz={16}
-        lh="1.25"
-        c={activeTab === link.url ? "#000000" : "#00000070"}
-        onClick={() => setActiveTab(link.url)}
-      >
-        {link.label}
-      </Text>
-    </Link>
+    <Text
+      key={index}
+      fz={16}
+      lh="1.25"
+      c={activeTab === link.id ? "#000000" : "#00000070"}
+      style={{
+        cursor: "pointer",
+      }}
+      onClick={() => {
+        setActiveTab(link.id);
+        if (link.id === HeaderEnum.home) {
+          router.replace("/");
+          return;
+        }
+        const ele = document.getElementById(link.id);
+        ele?.scrollIntoView({ behavior: "smooth" });
+      }}
+    >
+      {link.label}
+    </Text>
   ));
 
   return (
@@ -52,12 +64,11 @@ const Header = () => {
       w="100%"
       bg="white"
       py={12}
-      px={20}
       style={{
         boxShadow: "0px 4px 12px #00000020",
       }}
     >
-      <Group w="100%" maw={1600} mx="auto" justify="space-between">
+      <Group w="100%" maw={1600} mx="auto" justify="space-between" px={30}>
         <Box
           p={4}
           style={{
