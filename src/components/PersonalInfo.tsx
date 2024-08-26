@@ -100,13 +100,13 @@ const PersonalInfo = () => {
 
 const ProfileImage = (props?: CenterProps) => {
   return (
-    <Center {...props}>
+    <Center {...props} maw={{ base: 180, sm: 300 }}>
       <Image
-        src="/images/leoProfile.webp"
+        src="/images/leoProfileAnimated.png"
         alt="leo"
-        maw={{ base: 180, sm: 300 }}
+        fit="cover"
         style={{
-          aspectRatio: 1.0,
+          aspectRatio: 0.95,
           borderRadius: "100%",
           boxShadow: "0px 2px 15px #00000050",
         }}
