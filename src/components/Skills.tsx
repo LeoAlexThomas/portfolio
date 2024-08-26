@@ -5,35 +5,35 @@ import { HeaderEnum } from "./utils";
 const skills: SkillInterface[] = [
   {
     label: "React JS",
-    url: "/images/react_logo.svg",
+    url: "/images/react_logo.png",
   },
   {
     label: "TypeScript",
-    url: "/images/typescript_logo.svg",
+    url: "/images/typescript_logo.png",
   },
   {
     label: "JavaScript",
-    url: "/images/javascript_logo.svg",
+    url: "/images/javascript_logo.png",
   },
   {
     label: "Flutter",
-    url: "/images/flutter_logo.svg",
+    url: "/images/flutter_logo.png",
   },
   {
     label: "GitHub",
-    url: "/images/github_logo.svg",
+    url: "/images/github_logo.png",
   },
   {
     label: "Git",
-    url: "/images/git_logo.svg",
+    url: "/images/git_logo.png",
   },
   {
     label: "CSS3",
-    url: "/images/css_logo.svg",
+    url: "/images/css_logo.png",
   },
   {
     label: "HTML5",
-    url: "/images/html_logo.svg",
+    url: "/images/html_logo.png",
   },
 ];
 

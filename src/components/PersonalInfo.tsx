@@ -40,7 +40,7 @@ const PersonalInfo = () => {
             <Group gap={12} justify={isTablet ? "center" : "flex-start"}>
               <a href={socialLinks.github} target="_blank">
                 <Image
-                  src="/images/github_logo.svg"
+                  src="/images/github_logo.png"
                   alt="github"
                   w={{ base: 25, sm: 45 }}
                   h={{ base: 25, sm: 45 }}
@@ -48,7 +48,7 @@ const PersonalInfo = () => {
               </a>
               <a href={socialLinks.linkedIn} target="_blank">
                 <Image
-                  src="/images/linkedin_logo.svg"
+                  src="/images/linkedin_logo.png"
                   alt="linkedIn"
                   w={{ base: 25, sm: 45 }}
                   h={{ base: 25, sm: 45 }}
