@@ -3,8 +3,12 @@ import { Space, Stack } from "@mantine/core";
 import Header from "@/components/Header";
 import SkillContent from "@/components/Skills";
 import PersonalInfo from "@/components/PersonalInfo";
+import Experiences from "@/components/Experience";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function Home() {
+  const isTablet = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       <Head>
@@ -20,12 +24,14 @@ export default function Home() {
         mx="auto"
         px={30}
         pb={20}
+        gap={isTablet ? 20 : 80}
         style={{
           overflow: "hidden",
         }}
       >
         <PersonalInfo />
         <SkillContent />
+        <Experiences />
       </Stack>
     </>
   );

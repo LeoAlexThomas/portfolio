@@ -69,12 +69,7 @@ const Header = () => {
             boxShadow: "0px 0px 8px #00000040",
           }}
         >
-          <Avatar
-            name="Leo Alex Thomas"
-            src="/images/leoProfile.webp"
-            alt="profilePic"
-            size="md"
-          />
+          <Avatar name="Leo Alex Thomas" alt="profilePic" size="md" />
         </Box>
         <Group visibleFrom="sm" gap={12}>
           {links}
