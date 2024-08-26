@@ -6,35 +6,35 @@ import SectionTitle from "./SectionTitle";
 const skills: SkillInterface[] = [
   {
     label: "React JS",
-    url: "/images/react_logo.png",
+    url: "/images/react_logo.webp",
   },
   {
     label: "TypeScript",
-    url: "/images/typescript_logo.png",
+    url: "/images/typescript_logo.webp",
   },
   {
     label: "JavaScript",
-    url: "/images/javascript_logo.png",
+    url: "/images/javascript_logo.webp",
   },
   {
     label: "Flutter",
-    url: "/images/flutter_logo.png",
+    url: "/images/flutter_logo.webp",
   },
   {
     label: "GitHub",
-    url: "/images/github_logo.png",
+    url: "/images/github_logo.webp",
   },
   {
     label: "Git",
-    url: "/images/git_logo.png",
+    url: "/images/git_logo.webp",
   },
   {
     label: "CSS3",
-    url: "/images/css_logo.png",
+    url: "/images/css_logo.webp",
   },
   {
     label: "HTML5",
-    url: "/images/html_logo.png",
+    url: "/images/html_logo.webp",
   },
 ];
 
