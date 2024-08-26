@@ -1,6 +1,7 @@
 import { SkillInterface } from "@/types";
 import { Stack, Text, Grid, Image } from "@mantine/core";
 import { HeaderEnum } from "./utils";
+import SectionTitle from "./SectionTitle";
 
 const skills: SkillInterface[] = [
   {
@@ -40,12 +41,10 @@ const skills: SkillInterface[] = [
 const SkillContent = () => {
   return (
     <Stack gap={30} id={HeaderEnum.skills}>
-      <Text fz={{ base: 20, sm: 36 }} fw={500} lh="1.25" ta="center">
-        Skills
-      </Text>
+      <SectionTitle title="Skills" />
       <Grid gutter="md" justify="space-evenly">
-        {skills.map((skill) => (
-          <Grid.Col span="content">
+        {skills.map((skill, index) => (
+          <Grid.Col key={index} span="content">
             <Stack align="center">
               <Image src={skill.url} alt="" w={48} h={48} fit="contain" />
               <Text fz={{ base: 12, sm: 18 }} lh="1.25">
