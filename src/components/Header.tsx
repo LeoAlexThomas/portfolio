@@ -1,8 +1,8 @@
 import { Avatar, Box, Group, Text } from "@mantine/core";
 import { HeaderEnum } from "./utils";
-import { useState } from "react";
-import Link from "next/link";
+import { Fragment } from "react";
 import { useRouter } from "next/router";
+import { useHover } from "@mantine/hooks";
 
 interface NavLink {
   label: string;
@@ -33,30 +33,21 @@ const navLinks: NavLink[] = [
 ];
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState<string>(navLinks[0].id);
   const router = useRouter();
 
+  const handleLinkPress = (link: NavLink) => {
+    if (link.id === HeaderEnum.home) {
+      router.replace("/");
+      return;
+    }
+    const ele = document.getElementById(link.id);
+    ele?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const links = navLinks.map((link, index) => (
-    <Text
-      key={index}
-      fz={16}
-      lh="1.25"
-      c={activeTab === link.id ? "#000000" : "#00000070"}
-      style={{
-        cursor: "pointer",
-      }}
-      onClick={() => {
-        setActiveTab(link.id);
-        if (link.id === HeaderEnum.home) {
-          router.replace("/");
-          return;
-        }
-        const ele = document.getElementById(link.id);
-        ele?.scrollIntoView({ behavior: "smooth" });
-      }}
-    >
-      {link.label}
-    </Text>
+    <Fragment key={index}>
+      <HeaderLink text={link.label} onClicked={() => handleLinkPress(link)} />
+    </Fragment>
   ));
 
   return (
@@ -90,6 +81,32 @@ const Header = () => {
         </Group>
       </Group>
     </Box>
+  );
+};
+
+const HeaderLink = ({
+  text,
+  onClicked,
+}: {
+  text: string;
+  onClicked: () => void;
+}) => {
+  const { ref: hoverRef, hovered: isHovered } = useHover();
+
+  return (
+    <Text
+      ref={hoverRef}
+      fz={16}
+      lh="1.25"
+      td={isHovered ? "underline" : "none"}
+      c="#000000"
+      style={{
+        cursor: "pointer",
+      }}
+      onClick={onClicked}
+    >
+      {text}
+    </Text>
   );
 };
 
