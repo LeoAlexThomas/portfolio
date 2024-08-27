@@ -12,8 +12,8 @@ const experiences: ExperienceInterface[] = [
     position: "Frontend Developer",
     description:
       "Led a team of two to create web and mobile applications from scratch and take it to production. Successfully shipped products like Learning Platform[LMS], Customer relationship management [CRM], Testing Platform, Social Media Applications.",
-    startDate: "04 OCT 2021",
-    endDate: "20 AUG 2024",
+    startDate: "04 OCTOBER 2021",
+    endDate: "20 AUGEST 2024",
     exp: "2 years & 11 months",
   },
   {
@@ -22,8 +22,8 @@ const experiences: ExperienceInterface[] = [
     position: "Mobile Application Developer",
     description:
       "Create mobile applications that lets users control and monitor their Stir Casting Machine.",
-    startDate: "16 JAN 2021",
-    endDate: "30 SEP 2024",
+    startDate: "16 JANUARY 2021",
+    endDate: "30 SEPTEMBER 2024",
     exp: "9 months",
   },
 ];
