@@ -128,7 +128,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
           target="_blank"
           w={{ base: "100%", sm: "fit-content" }}
         >
-          {project.link ? "View my work" : "Link not available yet"}
+          {project.link ? "View my work" : "Link not available"}
         </Button>
       </Stack>
     </Box>
