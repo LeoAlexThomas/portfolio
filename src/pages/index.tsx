@@ -15,9 +15,15 @@ export default function Home() {
     <>
       <Head>
         <title>Leo Alex Thomas Portfolio</title>
-        <meta name="description" content="Leo alex thomas portfolio" />
+        <meta
+          name="description"
+          content=" Motivated Front-End Developer with a solid foundation in React,
+              JavaScript, NextJS, and more, eager to apply academic training and
+              hands-on experience in a professional setting. Possesses a keen
+              eye for design and a commitment to writing clean, efficient code."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/leoalex.ico" />
       </Head>
       <Header />
       <Space h={20} />

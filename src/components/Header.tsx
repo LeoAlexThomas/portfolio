@@ -2,7 +2,7 @@ import { Avatar, Box, Burger, Drawer, Group, Stack, Text } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
-import { useDisclosure, useHover } from "@mantine/hooks";
+import { useDisclosure, useHover, useMediaQuery } from "@mantine/hooks";
 
 interface NavLink {
   label: string;
@@ -31,6 +31,7 @@ const navLinks: NavLink[] = [
 const Header = () => {
   const router = useRouter();
   const [opened, { open: onOpen, close: onClose }] = useDisclosure();
+  const isTablet = useMediaQuery("(max-width: 768px)");
 
   const handleLinkPress = (link: NavLink) => {
     if (link.id === HeaderEnum.home) {
@@ -68,15 +69,18 @@ const Header = () => {
         </Group>
         <Burger hiddenFrom="sm" onClick={onOpen} />
         <Box
-          p={4}
           style={{
             border: "1px solid",
             borderColor: "#00000050",
             borderRadius: "100%",
-            boxShadow: "0px 0px 8px #00000040",
+            boxShadow: "0px 0px 6px #00000040",
           }}
         >
-          <Avatar name="Leo Alex Thomas" alt="profilePic" size="md" />
+          <Avatar
+            name="Leo Alex Thomas"
+            alt="profilePic"
+            size={isTablet ? "md" : "lg"}
+          />
         </Box>
       </Group>
     </Box>
