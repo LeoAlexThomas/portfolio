@@ -5,6 +5,7 @@ import SkillContent from "@/components/Skills";
 import PersonalInfo from "@/components/PersonalInfo";
 import Experiences from "@/components/Experience";
 import { useMediaQuery } from "@mantine/hooks";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   const isTablet = useMediaQuery("(max-width: 768px)");
@@ -24,7 +25,7 @@ export default function Home() {
         mx="auto"
         px={30}
         pb={20}
-        gap={isTablet ? 20 : 80}
+        gap={isTablet ? 60 : 80}
         style={{
           overflow: "hidden",
         }}
@@ -32,6 +33,7 @@ export default function Home() {
         <PersonalInfo />
         <SkillContent />
         <Experiences />
+        <Projects />
       </Stack>
     </>
   );

@@ -17,3 +17,12 @@ export interface ExperienceInterface {
   endDate: string;
   exp: string;
 }
+
+export interface ProjectInterface {
+  title: string;
+  description: string;
+  tools: string[];
+  organization: string;
+  highlight?: string;
+  link?: string;
+}

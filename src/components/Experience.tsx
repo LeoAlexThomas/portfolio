@@ -52,64 +52,77 @@ const ExperienceCard = ({
     <Box
       ref={hoverRef}
       style={{
-        boxShadow: isHovered ? "0px 0px 12px #00000020" : "none",
-        borderRadius: 12,
-        border: "1px solid var(--mantine-color-primary-gray-3)",
+        boxShadow: isHovered
+          ? "0px 0px 12px var(--mantine-color-primary-blue-2)"
+          : "none",
+        borderRadius: 14,
+        backgroundImage:
+          "linear-gradient(0, var(--mantine-color-primary-blue-7), var(--mantine-color-primary-blue-3))",
       }}
+      p={1}
     >
-      <Grid>
-        <Grid.Col span="content" display={{ base: "none", sm: "flex" }}>
-          <Image
-            src={experience.companyImage}
-            alt={experience.company}
-            maw={300}
-            style={{
-              borderTopLeftRadius: 12,
-              borderBottomLeftRadius: 12,
-            }}
-          />
-        </Grid.Col>
-        <Grid.Col span="auto">
-          <Image
-            src={experience.companyImage}
-            alt={experience.company}
-            mah={{ base: 150, xs: 250 }}
-            display={{ base: "flex", sm: "none" }}
-            style={{
-              borderTopLeftRadius: 12,
-              borderTopRightRadius: 12,
-            }}
-          />
-          <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
-            <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25">
-              {experience.company}{" "}
-              <Text span fz={12} c="primary-gray.5" fs="italic">
-                ( {experience.exp} )
+      <Box
+        bg="white"
+        style={{
+          borderRadius: 12,
+
+          border: "1px solid var(--mantine-color-primary-gray-3)",
+        }}
+      >
+        <Grid>
+          <Grid.Col span="content" display={{ base: "none", sm: "flex" }}>
+            <Image
+              src={experience.companyImage}
+              alt={experience.company}
+              maw={300}
+              style={{
+                borderTopLeftRadius: 12,
+                borderBottomLeftRadius: 12,
+              }}
+            />
+          </Grid.Col>
+          <Grid.Col span="auto">
+            <Image
+              src={experience.companyImage}
+              alt={experience.company}
+              mah={{ base: 150, xs: 250 }}
+              display={{ base: "flex", sm: "none" }}
+              style={{
+                borderTopLeftRadius: 12,
+                borderTopRightRadius: 12,
+              }}
+            />
+            <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
+              <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25">
+                {experience.company}{" "}
+                <Text span fz={12} c="primary-gray.5" fs="italic">
+                  ( {experience.exp} )
+                </Text>
               </Text>
-            </Text>
-            <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.3">
-              {experience.description}
-            </Text>
-            <Text
-              fz={{ base: 12, sm: 16 }}
-              fw={500}
-              lh="1.25"
-              c="primary-gray.7"
-            >
-              {experience.position}
-            </Text>
-            <Group gap={8} lh="1.12" c="primary-gray.4">
-              <Text fz={12} fw={500} fs="italic">
-                {experience.startDate}
+              <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.3">
+                {experience.description}
               </Text>
-              <Text>-</Text>
-              <Text fz={12} fw={500} fs="italic">
-                {experience.endDate}
+              <Text
+                fz={{ base: 12, sm: 16 }}
+                fw={500}
+                lh="1.25"
+                c="primary-gray.7"
+              >
+                {experience.position}
               </Text>
-            </Group>
-          </Stack>
-        </Grid.Col>
-      </Grid>
+              <Group gap={8} lh="1.12" c="primary-gray.4">
+                <Text fz={12} fw={500} fs="italic">
+                  {experience.startDate}
+                </Text>
+                <Text>-</Text>
+                <Text fz={12} fw={500} fs="italic">
+                  {experience.endDate}
+                </Text>
+              </Group>
+            </Stack>
+          </Grid.Col>
+        </Grid>
+      </Box>
     </Box>
   );
 };

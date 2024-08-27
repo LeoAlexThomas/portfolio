@@ -15,16 +15,16 @@ const navLinks: NavLink[] = [
     id: HeaderEnum.home,
   },
   {
-    label: "Projects",
-    id: HeaderEnum.project,
-  },
-  {
     label: "Skills",
     id: HeaderEnum.skills,
   },
   {
     label: "Experiences",
     id: HeaderEnum.experience,
+  },
+  {
+    label: "Projects",
+    id: HeaderEnum.project,
   },
   {
     label: "Contact",
