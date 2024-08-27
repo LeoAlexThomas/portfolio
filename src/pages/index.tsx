@@ -6,6 +6,7 @@ import PersonalInfo from "@/components/PersonalInfo";
 import Experiences from "@/components/Experience";
 import { useMediaQuery } from "@mantine/hooks";
 import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const isTablet = useMediaQuery("(max-width: 768px)");
@@ -35,6 +36,7 @@ export default function Home() {
         <Experiences />
         <Projects />
       </Stack>
+      <Footer />
     </>
   );
 }

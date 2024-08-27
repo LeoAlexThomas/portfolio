@@ -26,10 +26,6 @@ const navLinks: NavLink[] = [
     label: "Projects",
     id: HeaderEnum.project,
   },
-  {
-    label: "Contact",
-    id: HeaderEnum.contact,
-  },
 ];
 
 const Header = () => {

@@ -1,4 +1,4 @@
-import { SocialMediaLink } from "@/types";
+import { socialLinks } from "@/common";
 import {
   Center,
   Flex,
@@ -11,11 +11,6 @@ import {
   CenterProps,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-
-const socialLinks: SocialMediaLink = {
-  github: "https://github.com/LeoAlexThomas",
-  linkedIn: "https://www.linkedin.com/in/leoalex-thomas/",
-};
 
 const PersonalInfo = () => {
   const isTablet = useMediaQuery("(max-width: 768px)");
