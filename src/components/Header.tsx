@@ -1,8 +1,8 @@
-import { Avatar, Box, Group, Text } from "@mantine/core";
+import { Avatar, Box, Burger, Drawer, Group, Stack, Text } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
-import { useHover } from "@mantine/hooks";
+import { useDisclosure, useHover } from "@mantine/hooks";
 
 interface NavLink {
   label: string;
@@ -30,6 +30,7 @@ const navLinks: NavLink[] = [
 
 const Header = () => {
   const router = useRouter();
+  const [opened, { open: onOpen, close: onClose }] = useDisclosure();
 
   const handleLinkPress = (link: NavLink) => {
     if (link.id === HeaderEnum.home) {
@@ -55,7 +56,17 @@ const Header = () => {
         boxShadow: "0px 4px 12px #00000020",
       }}
     >
+      <MobileDrawer
+        isOpen={opened}
+        onClose={onClose}
+        links={navLinks}
+        onLinkPressed={handleLinkPress}
+      />
       <Group w="100%" maw={1200} mx="auto" justify="space-between" px={30}>
+        <Group visibleFrom="sm" gap={12}>
+          {links}
+        </Group>
+        <Burger hiddenFrom="sm" onClick={onOpen} />
         <Box
           p={4}
           style={{
@@ -67,10 +78,72 @@ const Header = () => {
         >
           <Avatar name="Leo Alex Thomas" alt="profilePic" size="md" />
         </Box>
-        <Group visibleFrom="sm" gap={12}>
-          {links}
-        </Group>
       </Group>
+    </Box>
+  );
+};
+
+const MobileDrawer = ({
+  isOpen,
+  onClose,
+  links,
+  onLinkPressed,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  links: NavLink[];
+  onLinkPressed: (link: NavLink) => void;
+}) => {
+  return (
+    <Drawer
+      opened={isOpen}
+      onClose={onClose}
+      styles={{
+        body: {
+          padding: 0,
+          marginTop: 10,
+        },
+      }}
+    >
+      <Stack>
+        {links.map((link, index) => (
+          <Fragment key={index}>
+            <MobileHeaderLink
+              text={link.label}
+              onClicked={() => {
+                onClose();
+                onLinkPressed(link);
+              }}
+            />
+          </Fragment>
+        ))}
+      </Stack>
+    </Drawer>
+  );
+};
+
+const MobileHeaderLink = ({
+  text,
+  onClicked,
+}: {
+  text: string;
+  onClicked: () => void;
+}) => {
+  const { ref: hoverRef, hovered: isHovered } = useHover();
+  return (
+    <Box
+      ref={hoverRef}
+      style={{
+        cursor: "pointer",
+        boxShadow: isHovered
+          ? "0px 0px 4px var(--mantine-color-primary-gray-8)"
+          : "none",
+      }}
+      onClick={onClicked}
+      w="100%"
+      p={16}
+    >
+      {text}
     </Box>
   );
 };

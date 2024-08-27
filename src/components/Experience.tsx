@@ -99,7 +99,7 @@ const ExperienceCard = ({
                   ( {experience.exp} )
                 </Text>
               </Text>
-              <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.3">
+              <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.4">
                 {experience.description}
               </Text>
               <Text
