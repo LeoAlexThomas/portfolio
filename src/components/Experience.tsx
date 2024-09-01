@@ -1,9 +1,11 @@
-import { Box, Grid, Group, Image, Stack, Text } from "@mantine/core";
+import { Box, Grid, Group, Stack, Text } from "@mantine/core";
 import SectionTitle from "./SectionTitle";
 import { HeaderEnum } from "./utils";
 import { ExperienceInterface } from "@/types";
 import { Fragment } from "react";
-import { useHover } from "@mantine/hooks";
+import { useHover, useMediaQuery } from "@mantine/hooks";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const experiences: ExperienceInterface[] = [
   {
@@ -28,15 +30,60 @@ const experiences: ExperienceInterface[] = [
   },
 ];
 
+const leftFadeAnimationVariants = {
+  initial: {
+    opacity: 0,
+    x: -200,
+  },
+  leftAnimate: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+const rightFadeAnimationVariants = {
+  initial: {
+    opacity: 0,
+    x: 200,
+  },
+  rightAnimate: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
 const Experiences = () => {
   return (
     <Stack gap={30} id={HeaderEnum.experience}>
       <SectionTitle title="Experiences" />
-      {experiences.map((exp, index) => (
-        <Fragment key={index}>
-          <ExperienceCard experience={exp} />
-        </Fragment>
-      ))}
+      {experiences.map((exp, index) => {
+        const showLeftAnimation = index % 2 === 0;
+        return (
+          <motion.div
+            key={index}
+            variants={
+              showLeftAnimation
+                ? leftFadeAnimationVariants
+                : rightFadeAnimationVariants
+            }
+            initial="initial"
+            whileInView={showLeftAnimation ? "leftAnimate" : "rightAnimate"}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            style={{
+              position: "relative",
+            }}
+          >
+            <Fragment key={index}>
+              <ExperienceCard experience={exp} />
+            </Fragment>
+          </motion.div>
+        );
+      })}
     </Stack>
   );
 };
@@ -47,7 +94,8 @@ const ExperienceCard = ({
   experience: ExperienceInterface;
 }) => {
   const { hovered: isHovered, ref: hoverRef } = useHover();
-
+  const isTablet = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 426px)");
   return (
     <Box
       ref={hoverRef}
@@ -65,7 +113,6 @@ const ExperienceCard = ({
         bg="white"
         style={{
           borderRadius: 12,
-
           border: "1px solid var(--mantine-color-primary-gray-3)",
         }}
       >
@@ -74,7 +121,9 @@ const ExperienceCard = ({
             <Image
               src={experience.companyImage}
               alt={experience.company}
-              maw={300}
+              width={300}
+              height={200}
+              priority
               style={{
                 borderTopLeftRadius: 12,
                 borderBottomLeftRadius: 12,
@@ -85,9 +134,12 @@ const ExperienceCard = ({
             <Image
               src={experience.companyImage}
               alt={experience.company}
-              mah={{ base: 150, xs: 250 }}
-              display={{ base: "flex", sm: "none" }}
+              height={isMobile ? 150 : 150}
+              width={isMobile ? 300 : 615}
+              layout="responsive"
+              priority
               style={{
+                display: isTablet ? "flex" : "none",
                 borderTopLeftRadius: 12,
                 borderTopRightRadius: 12,
               }}

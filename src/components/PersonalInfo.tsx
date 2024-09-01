@@ -6,11 +6,12 @@ import {
   Group,
   Stack,
   Text,
-  Image,
   Button,
   CenterProps,
+  Avatar,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import Image from "next/image";
 
 const PersonalInfo = () => {
   const isTablet = useMediaQuery("(max-width: 768px)");
@@ -70,16 +71,16 @@ const PersonalInfo = () => {
                 <Image
                   src="/images/github_logo.webp"
                   alt="github"
-                  w={25}
-                  h={25}
+                  width={25}
+                  height={25}
                 />
               </a>
               <a href={socialLinks.linkedIn} target="_blank">
                 <Image
                   src="/images/linkedin_logo.webp"
                   alt="linkedIn"
-                  w={25}
-                  h={25}
+                  width={25}
+                  height={25}
                 />
               </a>
             </Group>
@@ -94,18 +95,22 @@ const PersonalInfo = () => {
 };
 
 const ProfileImage = (props?: CenterProps) => {
+  const isTablet = useMediaQuery("(max-width: 768px)");
   return (
-    <Center {...props} maw={{ base: 180, sm: 300 }}>
-      <Image
-        src="/images/leoProfileAnimated.png"
-        alt="leo"
-        fit="cover"
-        style={{
-          aspectRatio: 0.95,
-          borderRadius: "100%",
-          boxShadow: "0px 2px 15px #00000050",
-        }}
-      />
+    <Center {...props} maw={{ base: 180, sm: 300 }} pos="relative">
+      <Avatar size={isTablet ? 180 : 300} pos="relative">
+        <Image
+          src="/images/leoProfileAnimated.png"
+          alt="leo"
+          width={isTablet ? 180 : 300}
+          height={isTablet ? 180 : 300}
+          layout="responsive"
+          style={{
+            borderRadius: "100%",
+            boxShadow: "0px 2px 15px #00000050",
+          }}
+        />
+      </Avatar>
     </Center>
   );
 };
