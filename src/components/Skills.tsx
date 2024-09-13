@@ -2,6 +2,7 @@ import { SkillInterface } from "@/types";
 import { Stack, Text, Grid, Image } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
+import { motion } from "framer-motion";
 
 const skills: SkillInterface[] = [
   {
@@ -38,6 +39,17 @@ const skills: SkillInterface[] = [
   },
 ];
 
+const fadeInScaleAnimation = {
+  initial: {
+    opacity: 0,
+    scale: 0.2,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+  },
+};
+
 const SkillContent = () => {
   return (
     <Stack gap={30} id={HeaderEnum.skills}>
@@ -45,12 +57,27 @@ const SkillContent = () => {
       <Grid gutter="md" justify="space-evenly">
         {skills.map((skill, index) => (
           <Grid.Col key={index} span="content">
-            <Stack align="center">
-              <Image src={skill.url} alt="" w={48} h={48} fit="contain" />
-              <Text fz={{ base: 12, sm: 18 }} lh="1.25">
-                {skill.label}
-              </Text>
-            </Stack>
+            <motion.div
+              variants={fadeInScaleAnimation}
+              initial="initial"
+              whileInView="animate"
+              transition={{
+                delay: 0.2,
+              }}
+              viewport={{
+                once: true,
+              }}
+              style={{
+                position: "relative",
+              }}
+            >
+              <Stack align="center">
+                <Image src={skill.url} alt="" w={48} h={48} fit="contain" />
+                <Text fz={{ base: 12, sm: 18 }} lh="1.25">
+                  {skill.label}
+                </Text>
+              </Stack>
+            </motion.div>
           </Grid.Col>
         ))}
       </Grid>

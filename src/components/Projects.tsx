@@ -4,6 +4,7 @@ import SectionTitle from "./SectionTitle";
 import { ProjectInterface } from "@/types";
 import { Fragment } from "react";
 import { useHover } from "@mantine/hooks";
+import { motion } from "framer-motion";
 
 const projects: ProjectInterface[] = [
   {
@@ -70,15 +71,34 @@ const projects: ProjectInterface[] = [
   },
 ];
 
+const fadeInAnimation = {
+  initial: { opacity: 0, y: 20 }, // Start from bottom and transparent
+  animate: { opacity: 1, y: 0 }, // End at normal position and fully opaque
+};
+
 const Projects = () => {
   return (
     <Stack gap={30} id={HeaderEnum.project}>
       <SectionTitle title="Projects" />
       {projects.map((project, index) => {
         return (
-          <Fragment key={index}>
-            <ProjectCard project={project} />
-          </Fragment>
+          <motion.div
+            key={index}
+            variants={fadeInAnimation}
+            initial="initial"
+            whileInView="animate"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{
+              once: true,
+            }}
+            style={{
+              position: "relative",
+            }}
+          >
+            <Fragment key={index}>
+              <ProjectCard project={project} />
+            </Fragment>
+          </motion.div>
         );
       })}
     </Stack>
@@ -121,7 +141,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
         <TitleWithText title="Organization" text={project.organization} />
         <TitleWithText title="Tools" text={project.tools.join(", ")} />
         <Button
-          component="a"
+          component={project.link ? "a" : "button"}
           href={project.link}
           disabled={!project.link}
           radius={12}
