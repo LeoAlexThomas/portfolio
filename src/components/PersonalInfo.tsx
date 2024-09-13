@@ -100,11 +100,12 @@ const ProfileImage = (props?: CenterProps) => {
     <Center {...props} maw={{ base: 180, sm: 300 }} pos="relative">
       <Avatar size={isTablet ? 180 : 300} pos="relative">
         <Image
-          src="/images/leoProfileAnimated.png"
+          src="/images/leoProfileAnimated.webp"
           alt="leo"
           width={isTablet ? 180 : 300}
           height={isTablet ? 180 : 300}
           layout="responsive"
+          priority
           style={{
             borderRadius: "100%",
             boxShadow: "0px 2px 15px #00000050",
