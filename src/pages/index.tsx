@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Space, Stack } from "@mantine/core";
+import { Box, Space, Stack } from "@mantine/core";
 import Header from "@/components/Header";
 import SkillContent from "@/components/Skills";
 import PersonalInfo from "@/components/PersonalInfo";
@@ -25,24 +25,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/leoalex.ico" />
       </Head>
-      <Header />
-      <Space h={20} />
-      <Stack
-        maw={1200}
-        mx="auto"
-        px={30}
-        pb={20}
-        gap={isTablet ? 60 : 80}
+      <Box
         style={{
-          overflow: "hidden",
+          backgroundImage:
+            "linear-gradient(0,  var(--mantine-color-primary-gray-2), #FFFFFF)",
         }}
       >
-        <PersonalInfo />
-        <SkillContent />
-        <Experiences />
-        <Projects />
-      </Stack>
-      <Footer />
+        <Header />
+        <Space h={20} />
+        <Stack
+          maw={1200}
+          mx="auto"
+          px={30}
+          pb={20}
+          gap={isTablet ? 60 : 80}
+          style={{
+            overflow: "hidden",
+          }}
+        >
+          <PersonalInfo />
+          <SkillContent />
+          <Experiences />
+          <Projects />
+        </Stack>
+        <Footer />
+      </Box>
     </>
   );
 }
