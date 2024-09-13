@@ -10,7 +10,7 @@ import Image from "next/image";
 const experiences: ExperienceInterface[] = [
   {
     company: "Cybermind works",
-    companyImage: "/images/company_1.webp",
+    companyImage: "https://www.cybermindworks.com/images/cmwlogo.svg",
     position: "Frontend Developer",
     description:
       "Led a team of two to create web and mobile applications from scratch and take it to production. Successfully shipped products like Learning Platform[LMS], Customer relationship management [CRM], Testing Platform, Social Media Applications.",
@@ -20,7 +20,7 @@ const experiences: ExperienceInterface[] = [
   },
   {
     company: "SwamEquip",
-    companyImage: "/images/company_2.webp",
+    companyImage: "/images/swamEquip.webp",
     position: "Mobile Application Developer",
     description:
       "Create mobile applications that lets users control and monitor their Stir Casting Machine.",
@@ -95,7 +95,6 @@ const ExperienceCard = ({
 }) => {
   const { hovered: isHovered, ref: hoverRef } = useHover();
   const isTablet = useMediaQuery("(max-width: 768px)");
-  const isMobile = useMediaQuery("(max-width: 426px)");
   return (
     <Box
       ref={hoverRef}
@@ -121,10 +120,11 @@ const ExperienceCard = ({
             <Image
               src={experience.companyImage}
               alt={experience.company}
-              width={300}
+              width={200}
               height={200}
               priority
               style={{
+                padding: "16px",
                 borderTopLeftRadius: 12,
                 borderBottomLeftRadius: 12,
               }}
@@ -134,11 +134,12 @@ const ExperienceCard = ({
             <Image
               src={experience.companyImage}
               alt={experience.company}
-              height={isMobile ? 150 : 150}
-              width={isMobile ? 300 : 615}
-              layout="responsive"
+              height={150}
+              width={150}
               priority
+              objectFit="contain"
               style={{
+                padding: "16px",
                 display: isTablet ? "flex" : "none",
                 borderTopLeftRadius: 12,
                 borderTopRightRadius: 12,
