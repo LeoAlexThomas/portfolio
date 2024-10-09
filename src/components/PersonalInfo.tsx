@@ -17,7 +17,7 @@ const PersonalInfo = () => {
   const isTablet = useMediaQuery("(max-width: 768px)");
   const isMobile = useMediaQuery("(max-width: 426px)");
   return (
-    <Flex h={{ base: "70vh", xs: "60vh", sm: "90vh" }}>
+    <Flex h={{ base: "70vh", xs: "60vh" }}>
       <Grid
         h="100%"
         w="100%"

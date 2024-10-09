@@ -38,7 +38,7 @@ export default function Home() {
           mx="auto"
           px={30}
           pb={20}
-          gap={isTablet ? 60 : 80}
+          gap={isTablet ? 60 : 120}
           style={{
             overflow: "hidden",
           }}

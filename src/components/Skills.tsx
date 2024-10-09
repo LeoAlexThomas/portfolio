@@ -37,6 +37,10 @@ const skills: SkillInterface[] = [
     label: "HTML5",
     url: "/images/html_logo.webp",
   },
+  {
+    label: "NodeJS",
+    url: "/images/nodeJS.webp",
+  },
 ];
 
 const fadeInScaleAnimation = {
@@ -72,10 +76,17 @@ const SkillContent = () => {
               }}
             >
               <Stack align="center">
-                <Image src={skill.url} alt="" w={48} h={48} fit="contain" />
-                <Text fz={{ base: 12, sm: 18 }} lh="1.25">
+                <Image
+                  src={skill.url}
+                  alt=""
+                  h="100%"
+                  fit="contain"
+                  mih={50}
+                  mah={50}
+                />
+                {/* <Text fz={{ base: 12, sm: 18 }} lh="1.25">
                   {skill.label}
-                </Text>
+                </Text> */}
               </Stack>
             </motion.div>
           </Grid.Col>

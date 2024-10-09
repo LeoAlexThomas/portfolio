@@ -8,6 +8,23 @@ import { motion } from "framer-motion";
 
 const projects: ProjectInterface[] = [
   {
+    title: "Smart Task Manager",
+    description:
+      "Created this website from scratch using TypeScript with Chakra-UI for components and NextJS for Frontend and NodeJS and Express JS for backend. This used to create task and through this user can maintain task using Chart in Dashboard. Used netlify to deploy website frontend & backend of this website.",
+    tools: [
+      "Chakra-UI",
+      "NextJS",
+      "TypeScript",
+      "NodeJS",
+      "ExpressJS",
+      "JWT",
+      "Chart JS",
+      "Netlify",
+    ],
+    organization: "My Self",
+    link: "https://smart-tasks-manager.netlify.app/",
+  },
+  {
     title: "Grow",
     highlight: "100,000+ Users",
     description:
@@ -87,7 +104,7 @@ const Projects = () => {
             variants={fadeInAnimation}
             initial="initial"
             whileInView="animate"
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{
               once: true,
             }}
