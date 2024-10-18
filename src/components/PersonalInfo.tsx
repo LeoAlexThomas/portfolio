@@ -9,6 +9,8 @@ import {
   Button,
   CenterProps,
   Avatar,
+  Box,
+  Space,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
@@ -34,15 +36,26 @@ const PersonalInfo = () => {
             justify="center"
           >
             <ProfileImage display={{ base: "flex", sm: "none" }} />
-
-            <Text
-              fz={{ base: 20, sm: 48 }}
-              fw={800}
-              lh="1.25"
-              ta={{ base: "center", xs: "start" }}
-            >
-              LEO ALEX THOMAS
-            </Text>
+            <Box>
+              <Text
+                fz={{ base: 20, sm: 48 }}
+                fw={800}
+                lh="1.25"
+                ta={{ base: "center", xs: "start" }}
+              >
+                LEO ALEX THOMAS
+              </Text>
+              <Space h={12} />
+              <Text
+                fz={{ base: 16, sm: 20 }}
+                fw={800}
+                lh="1.25"
+                ta={{ base: "center", xs: "start" }}
+                c="gray"
+              >
+                Software Engineer
+              </Text>
+            </Box>
             <Text
               fz={{ base: 14, md: 16 }}
               lh="1.5"
@@ -66,21 +79,24 @@ const PersonalInfo = () => {
             >
               View Resume
             </Button>
-            <Group gap={12} justify={isTablet ? "center" : "flex-start"}>
+            <Group
+              gap={isTablet ? 12 : 24}
+              justify={isTablet ? "center" : "flex-start"}
+            >
               <a href={socialLinks.github} target="_blank">
                 <Image
                   src="/images/github_logo.webp"
                   alt="github"
-                  width={25}
-                  height={25}
+                  width={isTablet ? 25 : 45}
+                  height={isTablet ? 25 : 45}
                 />
               </a>
               <a href={socialLinks.linkedIn} target="_blank">
                 <Image
                   src="/images/linkedin_logo.webp"
                   alt="linkedIn"
-                  width={25}
-                  height={25}
+                  width={isTablet ? 25 : 45}
+                  height={isTablet ? 25 : 45}
                 />
               </a>
             </Group>

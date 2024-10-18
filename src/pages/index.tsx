@@ -32,7 +32,7 @@ export default function Home() {
         }}
       >
         <Header />
-        <Space h={20} />
+        <Space h={120} />
         <Stack
           maw={1200}
           mx="auto"
@@ -44,8 +44,8 @@ export default function Home() {
           }}
         >
           <PersonalInfo />
-          <SkillContent />
           <Experiences />
+          <SkillContent />
           <Projects />
         </Stack>
         <Footer />
