@@ -51,10 +51,17 @@ const Header = () => {
   return (
     <Box
       w="100%"
-      bg="white"
+      bg="#FFFFFF70"
       py={12}
+      h={60}
       style={{
         boxShadow: "0px 4px 12px #00000020",
+        backdropFilter: "blur(5px)",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 10,
       }}
     >
       <MobileDrawer
@@ -63,25 +70,18 @@ const Header = () => {
         links={navLinks}
         onLinkPressed={handleLinkPress}
       />
-      <Group w="100%" maw={1200} mx="auto" justify="space-between" px={30}>
-        <Group visibleFrom="sm" gap={12}>
+      <Group
+        w="100%"
+        h="100%"
+        maw={1200}
+        mx="auto"
+        justify="space-between"
+        px={30}
+      >
+        <Group visibleFrom="sm" gap={28} w="100%" justify="center">
           {links}
         </Group>
         <Burger hiddenFrom="sm" onClick={onOpen} />
-        <Box
-          style={{
-            border: "1px solid",
-            borderColor: "#00000050",
-            borderRadius: "100%",
-            boxShadow: "0px 0px 6px #00000040",
-          }}
-        >
-          <Avatar
-            name="Leo Alex Thomas"
-            alt="profilePic"
-            size={isTablet ? "md" : "lg"}
-          />
-        </Box>
       </Group>
     </Box>
   );
