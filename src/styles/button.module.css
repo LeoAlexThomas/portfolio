@@ -5,7 +5,6 @@
     #3a6073 51%,
     #16222a 100%
   );
-  margin: 10px;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
@@ -21,4 +20,7 @@
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+.gradientButton:disabled {
+  background: #ffffff50;
 }

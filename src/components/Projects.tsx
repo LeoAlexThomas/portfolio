@@ -1,10 +1,12 @@
-import { Box, Button, Stack, Text } from "@mantine/core";
+import { Button, Group, Image, Space, Stack, Text } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
 import { ProjectInterface } from "@/types";
 import { Fragment } from "react";
-import { useHover } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
+import GradientBorderBox from "./GradientBorderBox";
+import buttonStyle from "../styles/button.module.css";
 
 const projects: ProjectInterface[] = [
   {
@@ -23,6 +25,7 @@ const projects: ProjectInterface[] = [
     ],
     organization: "My Self",
     link: "https://smart-tasks-manager.netlify.app/",
+    image: "/images/task-manager.webp",
   },
   {
     title: "Grow",
@@ -32,6 +35,7 @@ const projects: ProjectInterface[] = [
     tools: ["Chakra-UI", "Mantine-UI", "NextJS", "TypeScript", "PostHog"],
     organization: "Cybermind works",
     link: "https://grow.skill-lync.com/",
+    image: "/images/grow.webp",
   },
   {
     title: "Sales CRM",
@@ -47,6 +51,7 @@ const projects: ProjectInterface[] = [
       "React-Big-Calendar",
     ],
     link: "https://www.cybermindworks.com/portfolio/crm/",
+    image: "/images/crm.webp",
   },
   {
     title: "Farmyng Club",
@@ -62,6 +67,7 @@ const projects: ProjectInterface[] = [
       "Dynamic link",
     ],
     link: "https://play.google.com/store/apps/details?id=club.farmyng.socialfarming.agriculture.community&pcampaignid=web_share",
+    image: "/images/farmyng.webp",
   },
   {
     title: "Unitecol",
@@ -78,6 +84,7 @@ const projects: ProjectInterface[] = [
       "Socket Connection",
       "Flutter Local Notification [Custom notification style]",
     ],
+    image: "/images/unitecol.webp",
   },
   {
     title: "Stir Casting Machine HMI",
@@ -85,6 +92,7 @@ const projects: ProjectInterface[] = [
       "Create mobile applications that lets users control and monitor their Stir Casting Machine. Users can connect to the machine through an app which uses WIFI and Bluetooth for connection. For data safety, data is encrypted while sending and receiving data. Recorded machine data is exported in excel file and stored into the device storage.",
     organization: "SwamEquip",
     tools: ["Flutter widgets", "Socket Connection"],
+    image: "/images/sch_hmi.webp",
   },
 ];
 
@@ -97,6 +105,7 @@ const Projects = () => {
   return (
     <Stack gap={30} id={HeaderEnum.project}>
       <SectionTitle title="Projects" />
+      <Space h={0} />
       {projects.map((project, index) => {
         return (
           <motion.div
@@ -123,59 +132,65 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project }: { project: ProjectInterface }) => {
-  const { hovered: isHovered, ref: hoverRef } = useHover();
+  const isTablet = useMediaQuery("(max-width: 768px)");
   return (
-    <Box
-      ref={hoverRef}
-      style={{
-        boxShadow: isHovered
-          ? "0px 0px 12px var(--mantine-color-primary-blue-2)"
-          : "none",
-        borderRadius: 12,
-        backgroundImage:
-          "linear-gradient(0, var(--mantine-color-primary-blue-7), var(--mantine-color-primary-blue-3))",
-      }}
-      p={1}
-    >
-      <Stack
-        bg="white"
-        style={{
-          borderRadius: 12,
-        }}
-        p={20}
-      >
-        <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25">
-          {project.title}{" "}
-          {project.highlight && (
-            <Text span fz={14} c="primary-gray.5" fs="italic">
-              ( {project.highlight} )
-            </Text>
-          )}
-        </Text>
-        <Text fz={{ base: 12, sm: 16 }} lh="1.4" c="primary-gray.4">
-          {project.description}
-        </Text>
-        <TitleWithText title="Organization" text={project.organization} />
-        <TitleWithText title="Tools" text={project.tools.join(", ")} />
-        <Button
-          component={project.link ? "a" : "button"}
-          href={project.link}
-          disabled={!project.link}
-          radius={12}
-          target="_blank"
-          w={{ base: "100%", sm: "fit-content" }}
-        >
-          {project.link ? "View my work" : "Link not available"}
-        </Button>
-      </Stack>
-    </Box>
+    <GradientBorderBox>
+      <Group wrap="nowrap" p={20} align="center">
+        <Image
+          src={project.image}
+          alt={project.title}
+          style={{
+            aspectRatio: 16 / 9,
+            borderRadius: 8,
+            maxWidth: 350,
+            display: isTablet ? "none" : "block",
+          }}
+        />
+        <Stack>
+          <Image
+            src={project.image}
+            alt={project.title}
+            style={{
+              borderRadius: 8,
+              maxWidth: 350,
+              display: isTablet ? "flex" : "none",
+            }}
+          />
+          <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25" c="primary-gray.1">
+            {project.title}{" "}
+            {project.highlight && (
+              <Text span fz={14} c="primary-gray.3" fs="italic">
+                ( {project.highlight} )
+              </Text>
+            )}
+          </Text>
+          <Text fz={{ base: 12, sm: 16 }} lh="1.4" c="primary-gray.2">
+            {project.description}
+          </Text>
+          <TitleWithText title="Organization" text={project.organization} />
+          <TitleWithText title="Tools" text={project.tools.join(", ")} />
+          <Button
+            className={buttonStyle.gradientButton}
+            component={project.link ? "a" : "button"}
+            href={project.link}
+            disabled={!project.link}
+            target="_blank"
+            w={{ base: "100%", sm: "fit-content" }}
+            px={30}
+            py={0}
+          >
+            {project.link ? "View my work" : "Link not available"}
+          </Button>
+        </Stack>
+      </Group>
+    </GradientBorderBox>
   );
 };
 
 const TitleWithText = ({ title, text }: { title: string; text: string }) => {
   return (
-    <Text fz={{ base: 12, sm: 16 }} fs="italic" c="primary-gray.5">
-      <Text span fw={500} fs="normal" c="black">
+    <Text fz={{ base: 12, sm: 16 }} fs="italic" c="primary-gray.3">
+      <Text span fw={500} fs="normal" c="primary-gray.1">
         {title}:{" "}
       </Text>{" "}
       {text}

@@ -1,11 +1,12 @@
-import { Box, Grid, Group, Stack, Text } from "@mantine/core";
+import { Grid, Group, Space, Stack, Text } from "@mantine/core";
 import SectionTitle from "./SectionTitle";
 import { HeaderEnum } from "./utils";
 import { ExperienceInterface } from "@/types";
 import { Fragment } from "react";
-import { useHover, useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import GradientBorderBox from "@/components/GradientBorderBox";
 
 const experiences: ExperienceInterface[] = [
   {
@@ -56,6 +57,7 @@ const Experiences = () => {
   return (
     <Stack gap={30} id={HeaderEnum.experience}>
       <SectionTitle title="Experiences" />
+      <Space h={0} />
       {experiences.map((exp, index) => {
         const showLeftAnimation = index % 2 === 0;
         return (
@@ -93,90 +95,73 @@ const ExperienceCard = ({
 }: {
   experience: ExperienceInterface;
 }) => {
-  const { hovered: isHovered, ref: hoverRef } = useHover();
   const isTablet = useMediaQuery("(max-width: 768px)");
   return (
-    <Box
-      ref={hoverRef}
-      style={{
-        boxShadow: isHovered
-          ? "0px 0px 12px var(--mantine-color-primary-blue-2)"
-          : "none",
-        borderRadius: 14,
-        backgroundImage:
-          "linear-gradient(0, var(--mantine-color-primary-blue-7), var(--mantine-color-primary-blue-3))",
-      }}
-      p={1}
-    >
-      <Box
-        bg="white"
-        style={{
-          borderRadius: 12,
-          border: "1px solid var(--mantine-color-primary-gray-3)",
-        }}
-      >
-        <Grid>
-          <Grid.Col span="content" display={{ base: "none", sm: "flex" }}>
-            <Image
-              src={experience.companyImage}
-              alt={experience.company}
-              width={200}
-              height={200}
-              priority
-              style={{
-                padding: "16px",
-                borderTopLeftRadius: 12,
-                borderBottomLeftRadius: 12,
-              }}
-            />
-          </Grid.Col>
-          <Grid.Col span="auto">
-            <Image
-              src={experience.companyImage}
-              alt={experience.company}
-              height={150}
-              width={150}
-              priority
-              objectFit="contain"
-              style={{
-                padding: "16px",
-                display: isTablet ? "flex" : "none",
-                borderTopLeftRadius: 12,
-                borderTopRightRadius: 12,
-              }}
-            />
-            <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
-              <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25">
-                {experience.company}{" "}
-                <Text span fz={12} c="primary-gray.5" fs="italic">
-                  ( {experience.exp} )
-                </Text>
+    <GradientBorderBox>
+      <Grid>
+        <Grid.Col span="content" display={{ base: "none", sm: "flex" }}>
+          <Image
+            src={experience.companyImage}
+            alt={experience.company}
+            width={200}
+            height={200}
+            priority
+            style={{
+              margin: "16px",
+              borderRadius: 12,
+            }}
+          />
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <Image
+            src={experience.companyImage}
+            alt={experience.company}
+            height={150}
+            width={150}
+            priority
+            objectFit="contain"
+            style={{
+              margin: "16px",
+              display: isTablet ? "flex" : "none",
+              borderRadius: 12,
+            }}
+          />
+          <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
+            <Text
+              fz={{ base: 16, sm: 24 }}
+              fw={500}
+              lh="1.25"
+              c="primary-gray.1"
+            >
+              {experience.company}{" "}
+              <Text span fz={12} c="primary-gray.3" fs="italic">
+                ( {experience.exp} )
               </Text>
-              <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.4">
-                {experience.description}
+            </Text>
+            <Text fz={{ base: 12, sm: 16 }} lh="1.25" c="primary-gray.2">
+              {experience.description}
+            </Text>
+            <Text
+              fz={{ base: 12, sm: 16 }}
+              fw={500}
+              lh="1.25"
+              c="primary-gray.4"
+            >
+              {experience.position}
+            </Text>
+            <Group gap={8} lh="1.12" c="primary-gray.2">
+              <Text fz={12} fw={500} fs="italic">
+                {experience.startDate}
               </Text>
-              <Text
-                fz={{ base: 12, sm: 16 }}
-                fw={500}
-                lh="1.25"
-                c="primary-gray.7"
-              >
-                {experience.position}
+              <Text>-</Text>
+              <Text fz={12} fw={500} fs="italic">
+                {experience.endDate}
               </Text>
-              <Group gap={8} lh="1.12" c="primary-gray.4">
-                <Text fz={12} fw={500} fs="italic">
-                  {experience.startDate}
-                </Text>
-                <Text>-</Text>
-                <Text fz={12} fw={500} fs="italic">
-                  {experience.endDate}
-                </Text>
-              </Group>
-            </Stack>
-          </Grid.Col>
-        </Grid>
-      </Box>
-    </Box>
+            </Group>
+          </Stack>
+        </Grid.Col>
+      </Grid>
+    </GradientBorderBox>
   );
 };
 

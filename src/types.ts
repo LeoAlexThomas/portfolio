@@ -25,4 +25,5 @@ export interface ProjectInterface {
   organization: string;
   highlight?: string;
   link?: string;
+  image: string;
 }
