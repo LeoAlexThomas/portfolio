@@ -1,5 +1,5 @@
 import { SkillInterface } from "@/types";
-import { Stack, Text, Grid, Image } from "@mantine/core";
+import { Stack, Grid, Image, Space } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
@@ -39,7 +39,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "NodeJS",
-    url: "/images/nodeJS.webp",
+    url: "/images/nodejs.svg",
   },
 ];
 
@@ -58,6 +58,7 @@ const SkillContent = () => {
   return (
     <Stack gap={30} id={HeaderEnum.skills}>
       <SectionTitle title="Skills" />
+      <Space h={0} />
       <Grid gutter="md" justify="space-evenly">
         {skills.map((skill, index) => (
           <Grid.Col key={index} span="content">
