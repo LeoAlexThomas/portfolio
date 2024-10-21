@@ -146,7 +146,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
   const isTablet = useMediaQuery("(max-width: 768px)");
   return (
     <GradientBorderBox>
-      <Group wrap="nowrap" p={20} align="center">
+      <Group wrap="nowrap" p={20} align="center" gap={30}>
         <Image
           src={project.image}
           alt={project.title}
