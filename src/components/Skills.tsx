@@ -59,7 +59,7 @@ const SkillContent = () => {
     <Stack gap={30} id={HeaderEnum.skills}>
       <SectionTitle title="Skills" />
       <Space h={0} display={{ base: "none", sm: "flex" }} />
-      <Grid gutter="md" justify="space-evenly">
+      <Grid gutter="xl" justify="center">
         {skills.map((skill, index) => (
           <Grid.Col key={index} span="content">
             <motion.div
@@ -84,6 +84,7 @@ const SkillContent = () => {
                   fit="contain"
                   mih={50}
                   mah={50}
+                  bg="white"
                 />
                 {/* <Text fz={{ base: 12, sm: 18 }} lh="1.25">
                   {skill.label}

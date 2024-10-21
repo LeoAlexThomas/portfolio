@@ -56,7 +56,7 @@ const PersonalInfo = () => {
               <ProfileImage display={{ base: "flex", sm: "none" }} />
               <Box>
                 <Text
-                  fz={{ base: 20, sm: 48 }}
+                  fz={{ base: 24, sm: 48 }}
                   fw={800}
                   lh="1.25"
                   ta={{ base: "center", xs: "start" }}
@@ -66,7 +66,7 @@ const PersonalInfo = () => {
                 </Text>
                 <Space h={12} />
                 <Text
-                  fz={{ base: 16, sm: 20 }}
+                  fz={{ base: 18, sm: 20 }}
                   fw={800}
                   lh="1.25"
                   ta={{ base: "center", xs: "start" }}
@@ -76,9 +76,9 @@ const PersonalInfo = () => {
                 </Text>
               </Box>
               <Text
-                fz={{ base: 14, md: 16 }}
+                fz={{ base: 16, md: 20 }}
                 lh="1.5"
-                c="primary-gray.4"
+                c="primary-gray.6"
                 pt={4}
                 ta={{ base: "center", xs: "start" }}
               >
@@ -110,14 +110,14 @@ const PersonalInfo = () => {
                       borderRadius: "50%",
                       overflow: "hidden",
                     }}
-                    w={{ base: 30, sm: 45 }}
-                    h={{ base: 30, sm: 45 }}
+                    w={45}
+                    h={45}
                   >
                     <Image
                       src="/images/github_logo.webp"
                       alt="github"
-                      width={isTablet ? 30 : 45}
-                      height={isTablet ? 30 : 45}
+                      width={45}
+                      height={45}
                     />
                   </Box>
                 </a>
@@ -127,14 +127,14 @@ const PersonalInfo = () => {
                       borderRadius: isTablet ? 4 : 12,
                       overflow: "hidden",
                     }}
-                    w={{ base: 25, sm: 45 }}
-                    h={{ base: 25, sm: 45 }}
+                    w={45}
+                    h={45}
                   >
                     <Image
                       src="/images/linkedin_logo.webp"
                       alt="linkedIn"
-                      width={isTablet ? 25 : 45}
-                      height={isTablet ? 25 : 45}
+                      width={45}
+                      height={45}
                     />
                   </Box>
                 </a>

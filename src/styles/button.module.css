@@ -1,12 +1,10 @@
 .gradientButton {
   background-image: linear-gradient(
     to right,
-    #4dabf7 0%,
-    #d0ebff 51%,
-    #4dabf7 100%
+    #0275b4 0%,
+    #4dabf7 51%,
+    #0275b4 100%
   );
-  margin: 10px;
-  padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;

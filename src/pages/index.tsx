@@ -32,7 +32,7 @@ export default function Home() {
         }}
       >
         <Header />
-        <Space h={120} />
+        <Space h={100} />
         <Stack
           maw={1200}
           mx="auto"

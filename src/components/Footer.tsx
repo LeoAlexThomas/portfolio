@@ -17,7 +17,12 @@ const Footer = () => {
         <Space h={12} />
         <Group gap={12} justify="center">
           <a href={"mailto:leoalex960@gmail.com"} target="_blank">
-            <Image src="/images/mail.svg" alt="gmail" w={35} h={35} />
+            <Image
+              src="/images/gmail_logo_footer.webp"
+              alt="gmail"
+              w={35}
+              h={35}
+            />
           </a>
           <a href={socialLinks.github} target="_blank">
             <Box
@@ -26,11 +31,21 @@ const Footer = () => {
                 overflow: "hidden",
               }}
             >
-              <Image src="/images/github.svg" alt="github" w={30} h={30} />
+              <Image
+                src="/images/github_logo_footer.webp"
+                alt="github"
+                w={30}
+                h={30}
+              />
             </Box>
           </a>
           <a href={socialLinks.linkedIn} target="_blank">
-            <Image src="/images/linkedin.svg" alt="linkedIn" w={40} h={40} />
+            <Image
+              src="/images/linkedin_logo_footer.webp"
+              alt="linkedIn"
+              w={40}
+              h={40}
+            />
           </a>
         </Group>
       </Box>

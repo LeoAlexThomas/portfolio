@@ -155,6 +155,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             borderRadius: 8,
             maxWidth: 350,
             display: isTablet ? "none" : "block",
+            border: "1px solid #00000020",
           }}
         />
         <Stack gap={16}>
@@ -165,34 +166,50 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
               borderRadius: 8,
               maxWidth: 350,
               display: isTablet ? "flex" : "none",
+              border: "1px solid #00000020",
             }}
           />
-          <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25" c="primary-gray.9">
+          <Text
+            fz={{ base: 20, sm: 24 }}
+            fw={500}
+            lh="1.25"
+            c="primary-gray.9"
+            lineClamp={2}
+          >
             {project.title}{" "}
             {project.highlight && (
-              <Text span fz={14} c="primary-gray.6" fs="italic">
+              <Text
+                span
+                fz={14}
+                c="primary-gray.6"
+                fs="italic"
+                style={{
+                  whiteSpace: "nowrap",
+                }}
+              >
                 ( {project.highlight} )
               </Text>
             )}
           </Text>
-          <Text fz={{ base: 12, sm: 16 }} lh="1.4" c="primary-gray.6">
+          <Text fz={{ base: 16, sm: 20 }} lh="1.4" c="primary-gray.6">
             {project.description}
           </Text>
           <TitleWithText title="Organization" text={project.organization} />
           <Tools tools={project.tools} />
-          <Button
-            className={buttonStyle.gradientButton}
-            component={project.link ? "a" : "button"}
-            href={project.link}
-            disabled={!project.link}
-            target="_blank"
-            w={{ base: "100%", sm: "fit-content" }}
-            mt={16}
-            px={30}
-            py={0}
-          >
-            {project.link ? "View my work" : "Link not available"}
-          </Button>
+          {project.link !== undefined && (
+            <Button
+              className={buttonStyle.gradientButton}
+              component={project.link ? "a" : "button"}
+              href={project.link}
+              target="_blank"
+              w={{ base: "100%", sm: "fit-content" }}
+              mt={16}
+              px={30}
+              py={0}
+            >
+              {project.link ? "View my work" : "Link not available"}
+            </Button>
+          )}
         </Stack>
       </Group>
     </GradientBorderBox>
@@ -203,7 +220,7 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
   const isTablet = useMediaQuery("(max-width: 768px)");
   return (
     <Stack gap={10}>
-      <Text fz={16} fw={500} c="primary-gray.8">
+      <Text fz={20} fw={500} c="primary-gray.8">
         Tools :
       </Text>
       <Group justify={isTablet ? "center" : "flex-start"}>
@@ -230,7 +247,7 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
 const TitleWithText = ({ title, text }: { title: string; text: string }) => {
   return (
     <Text fz={16} fs="italic" c="primary-gray.6">
-      <Text span fw={500} fs="normal" c="primary-gray.8">
+      <Text span fz={20} fw={500} fs="normal" c="primary-gray.8">
         {title}:{" "}
       </Text>{" "}
       {text}

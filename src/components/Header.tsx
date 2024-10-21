@@ -66,11 +66,6 @@ const Header = () => {
       style={{
         boxShadow: "0px 4px 12px #afafaf",
         backdropFilter: "blur(5px)",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 10,
       }}
     >
       <MobileDrawer
@@ -84,13 +79,16 @@ const Header = () => {
         h="100%"
         maw={1200}
         mx="auto"
-        justify="space-between"
+        justify={isTablet ? "flex-start" : "space-between"}
         px={30}
       >
         <Group visibleFrom="sm" gap={28} w="100%" justify="center">
           {links}
         </Group>
         <Burger hiddenFrom="sm" onClick={onOpen} color="white" />
+        {/* <Text hiddenFrom="sm" fz={24} fw={700} lh="1.25" c="white">
+          Leo Alex
+        </Text> */}
       </Group>
     </Box>
   );
@@ -111,7 +109,6 @@ const MobileDrawer = ({
     <Drawer
       opened={isOpen}
       onClose={onClose}
-      withCloseButton={false}
       bg="white"
       styles={{
         body: {
@@ -121,29 +118,17 @@ const MobileDrawer = ({
         },
       }}
     >
-      <Stack>
-        <Flex
-          w={45}
-          h={45}
-          mt={14}
-          style={{
-            alignSelf: "flex-end",
-          }}
-        >
-          <CloseButton onClick={onClose} c="primary-gray.8" />
-        </Flex>
-        {links.map((link, index) => (
-          <Fragment key={index}>
-            <MobileHeaderLink
-              text={link.label}
-              onClicked={() => {
-                onClose();
-                onLinkPressed(link);
-              }}
-            />
-          </Fragment>
-        ))}
-      </Stack>
+      {links.map((link, index) => (
+        <Fragment key={index}>
+          <MobileHeaderLink
+            text={link.label}
+            onClicked={() => {
+              onClose();
+              onLinkPressed(link);
+            }}
+          />
+        </Fragment>
+      ))}
     </Drawer>
   );
 };
@@ -155,15 +140,11 @@ const MobileHeaderLink = ({
   text: string;
   onClicked: () => void;
 }) => {
-  const { ref: hoverRef, hovered: isHovered } = useHover();
   return (
     <Box
-      ref={hoverRef}
       style={{
         cursor: "pointer",
-        boxShadow: isHovered
-          ? "0px 0px 4px var(--mantine-color-primary-gray-4)"
-          : "none",
+        boxShadow: "0px 2px var(--mantine-color-primary-gray-4)",
       }}
       onClick={onClicked}
       w="100%"

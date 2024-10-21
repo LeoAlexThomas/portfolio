@@ -131,18 +131,27 @@ const ExperienceCard = ({
             />
             <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
               <Text
-                fz={{ base: 16, sm: 24 }}
+                fz={{ base: 20, sm: 24 }}
                 fw={500}
                 lh="1.25"
                 c="primary-gray.9"
+                lineClamp={2}
               >
                 {experience.company}{" "}
-                <Text span fz={12} c="primary-gray.6" fs="italic">
+                <Text
+                  span
+                  fz={14}
+                  c="primary-gray.6"
+                  fs="italic"
+                  style={{
+                    whiteSpace: "nowrap",
+                  }}
+                >
                   ( {experience.exp} )
                 </Text>
               </Text>
               <Text
-                fz={{ base: 12, sm: 16 }}
+                fz={{ base: 16, sm: 20 }}
                 fw={400}
                 lh="1.25"
                 c="primary-gray.6"
@@ -153,7 +162,7 @@ const ExperienceCard = ({
                 {experience.description}
               </Text>
               <Text
-                fz={{ base: 12, sm: 16 }}
+                fz={{ base: 16, sm: 20 }}
                 fw={500}
                 lh="1.25"
                 c="primary-gray.8"
@@ -161,11 +170,11 @@ const ExperienceCard = ({
                 {experience.position}
               </Text>
               <Group gap={8} lh="1.12" c="primary-gray.8">
-                <Text fz={12} fw={500} fs="italic">
+                <Text fz={14} fw={500} fs="italic">
                   {experience.startDate}
                 </Text>
                 <Text>-</Text>
-                <Text fz={12} fw={500} fs="italic">
+                <Text fz={14} fw={500} fs="italic">
                   {experience.endDate}
                 </Text>
               </Group>
