@@ -8,19 +8,20 @@ const GradientBorderBox = ({ children }: { children: React.ReactNode }) => {
       ref={hoverRef}
       style={{
         boxShadow: isHovered
-          ? "0px 0px 12px var(--mantine-color-primary-gray-4)"
+          ? "0px 0px 10px var(--mantine-color-primary-blue-2)"
           : "none",
         borderRadius: 14,
-        backgroundImage: "linear-gradient(140deg, #afafaf, white, #afafaf)",
+        backgroundImage:
+          "linear-gradient(40deg, var(--mantine-color-primary-blue-3), var(--mantine-color-primary-blue-8), var(--mantine-color-primary-blue-3))",
       }}
-      p={1}
+      p={2}
     >
       <Box
         style={{
           borderRadius: 12,
-          border: "1px solid var(--mantine-color-primary-gray-3)",
-          backgroundImage: "linear-gradient(220deg, #ffffff, #afafaf)",
+          background: "white",
         }}
+        p={4}
       >
         {children}
       </Box>
