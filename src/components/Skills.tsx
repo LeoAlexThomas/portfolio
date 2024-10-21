@@ -11,7 +11,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "TypeScript",
-    url: "/images/typescript_logo.webp",
+    url: "/images/typeScript.webp",
   },
   {
     label: "JavaScript",
@@ -19,7 +19,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "Flutter",
-    url: "/images/flutter_logo.webp",
+    url: "/images/flutter.webp",
   },
   {
     label: "GitHub",
@@ -58,7 +58,7 @@ const SkillContent = () => {
   return (
     <Stack gap={30} id={HeaderEnum.skills}>
       <SectionTitle title="Skills" />
-      <Space h={0} />
+      <Space h={0} display={{ base: "none", sm: "flex" }} />
       <Grid gutter="md" justify="space-evenly">
         {skills.map((skill, index) => (
           <Grid.Col key={index} span="content">

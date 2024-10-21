@@ -4,3 +4,27 @@ export enum HeaderEnum {
   skills = "skills",
   experience = "experience",
 }
+
+export enum SkillToolEnum {
+  chakraUI = "chakraUI",
+  mantineUI = "mantineUI",
+  nextJS = "nextJS",
+  typeScript = "typeScript",
+  nodeJS = "nodeJS",
+  expressJS = "expressJS",
+  jwt = "jwt",
+  netlify = "netlify",
+  chartJS = "chartJS",
+  posthog = "posthog",
+  reactBigCalendar = "reactBigCalendar",
+  flutter = "flutter",
+  flutterHooks = "flutterHooks",
+  flutterRiverPods = "flutterRiverPods",
+  flutterNotifications = "flutterNotifications",
+  firebase = "firebase",
+  dynamicLinks = "dynamicLinks",
+  oAuth = "oAuth",
+  socketConnection = "socketConnection",
+  wifiConnection = "wifiConnection",
+  usbConnection = "usbConnection",
+}

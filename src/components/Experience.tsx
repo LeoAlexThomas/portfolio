@@ -57,7 +57,7 @@ const Experiences = () => {
   return (
     <Stack gap={30} id={HeaderEnum.experience}>
       <SectionTitle title="Experiences" />
-      <Space h={0} />
+      <Space h={0} display={{ base: "none", sm: "flex" }} />
       {experiences.map((exp, index) => {
         const showLeftAnimation = index % 2 === 0;
         return (

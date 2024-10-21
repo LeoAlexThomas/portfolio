@@ -1,5 +1,5 @@
 import { Button, Group, Image, Space, Stack, Text } from "@mantine/core";
-import { HeaderEnum } from "./utils";
+import { HeaderEnum, SkillToolEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
 import { ProjectInterface } from "@/types";
 import { Fragment } from "react";
@@ -14,14 +14,14 @@ const projects: ProjectInterface[] = [
     description:
       "Created this website from scratch using TypeScript with Chakra-UI for components and NextJS for Frontend and NodeJS and Express JS for backend. This used to create task and through this user can maintain task using Chart in Dashboard. Used netlify to deploy website frontend & backend of this website.",
     tools: [
-      "Chakra-UI",
-      "NextJS",
-      "TypeScript",
-      "NodeJS",
-      "ExpressJS",
-      "JWT",
-      "Chart JS",
-      "Netlify",
+      SkillToolEnum.chakraUI,
+      SkillToolEnum.nextJS,
+      SkillToolEnum.typeScript,
+      SkillToolEnum.nodeJS,
+      SkillToolEnum.expressJS,
+      SkillToolEnum.jwt,
+      SkillToolEnum.chartJS,
+      SkillToolEnum.netlify,
     ],
     organization: "My Self",
     link: "https://smart-tasks-manager.netlify.app/",
@@ -32,7 +32,13 @@ const projects: ProjectInterface[] = [
     highlight: "100,000+ Users",
     description:
       "Created the LMS platform from scratch using TypeScript with Chakra-UI for components and NextJS for features like SSR, dynamic routing, NextImage, NextLink, and code-splitting. Improved performance metrics such as Largest Contentful Paint (LCP), First Contentful Paint (FCP) and initial page load times. Implemented analytics to track website and user activity.",
-    tools: ["Chakra-UI", "Mantine-UI", "NextJS", "TypeScript", "PostHog"],
+    tools: [
+      SkillToolEnum.chakraUI,
+      SkillToolEnum.mantineUI,
+      SkillToolEnum.nextJS,
+      SkillToolEnum.typeScript,
+      SkillToolEnum.posthog,
+    ],
     organization: "Cybermind works",
     link: "https://grow.skill-lync.com/",
     image: "/images/grow.webp",
@@ -44,11 +50,11 @@ const projects: ProjectInterface[] = [
       "Built a CRM platform from scratch to show leads based on lead priority and manage events using React-Big-Calendar. Advanced graphs to show reports using Chart-JS. Deployed the website using AWS S3 Bucket and AWS CloudFront (CDN) for enhanced performance.",
     organization: "Cybermind works",
     tools: [
-      "Chakra-UI",
-      "NextJS",
-      "TypeScript",
-      "Chart-JS",
-      "React-Big-Calendar",
+      SkillToolEnum.chakraUI,
+      SkillToolEnum.nextJS,
+      SkillToolEnum.typeScript,
+      SkillToolEnum.chartJS,
+      SkillToolEnum.reactBigCalendar,
     ],
     link: "https://www.cybermindworks.com/portfolio/crm/",
     image: "/images/crm.webp",
@@ -60,11 +66,12 @@ const projects: ProjectInterface[] = [
       "Developed a Flutter mobile application connecting farmers, industries, agents, and the public, achieving a 4.1 rating on the Google Play Store. Added multi-language support, user profile management, news feeds, WhatsApp share functionality, and combined image, video, and text feeds. Integrated Firebase analytics and crash reporting.",
     organization: "Cybermind works",
     tools: [
-      "Flutter widgets",
-      "Flutter hooks",
-      "Flutter riverpods",
-      "Flutter firebase",
-      "Dynamic link",
+      SkillToolEnum.flutter,
+      SkillToolEnum.flutterHooks,
+      SkillToolEnum.flutterRiverPods,
+      SkillToolEnum.firebase,
+      SkillToolEnum.dynamicLinks,
+      SkillToolEnum.flutterNotifications,
     ],
     link: "https://play.google.com/store/apps/details?id=club.farmyng.socialfarming.agriculture.community&pcampaignid=web_share",
     image: "/images/farmyng.webp",
@@ -75,14 +82,14 @@ const projects: ProjectInterface[] = [
       "Created a Flutter mobile application similar to Instagram, LinkedIn, and Facebook. Implemented features such as video playback, chat, custom notifications, user profile management, image cropping, image preview, and social sign-ins (Google, Facebook, LinkedIn) and OTP verification.",
     organization: "Cybermind works",
     tools: [
-      "Flutter widgets",
-      "Flutter hooks",
-      "Flutter riverpods",
-      "Flutter firebase",
-      "Dynamic link",
-      "OAuth",
-      "Socket Connection",
-      "Flutter Local Notification [Custom notification style]",
+      SkillToolEnum.flutter,
+      SkillToolEnum.flutterHooks,
+      SkillToolEnum.flutterRiverPods,
+      SkillToolEnum.firebase,
+      SkillToolEnum.dynamicLinks,
+      SkillToolEnum.oAuth,
+      SkillToolEnum.socketConnection,
+      SkillToolEnum.flutterNotifications,
     ],
     image: "/images/unitecol.webp",
   },
@@ -91,7 +98,11 @@ const projects: ProjectInterface[] = [
     description:
       "Create mobile applications that lets users control and monitor their Stir Casting Machine. Users can connect to the machine through an app which uses WIFI and Bluetooth for connection. For data safety, data is encrypted while sending and receiving data. Recorded machine data is exported in excel file and stored into the device storage.",
     organization: "SwamEquip",
-    tools: ["Flutter widgets", "Socket Connection"],
+    tools: [
+      SkillToolEnum.flutter,
+      SkillToolEnum.usbConnection,
+      SkillToolEnum.wifiConnection,
+    ],
     image: "/images/sch_hmi.webp",
   },
 ];
@@ -105,7 +116,7 @@ const Projects = () => {
   return (
     <Stack gap={30} id={HeaderEnum.project}>
       <SectionTitle title="Projects" />
-      <Space h={0} />
+      <Space h={0} display={{ base: "none", sm: "flex" }} />
       {projects.map((project, index) => {
         return (
           <motion.div
@@ -146,7 +157,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             display: isTablet ? "none" : "block",
           }}
         />
-        <Stack>
+        <Stack gap={16}>
           <Image
             src={project.image}
             alt={project.title}
@@ -168,7 +179,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             {project.description}
           </Text>
           <TitleWithText title="Organization" text={project.organization} />
-          <TitleWithText title="Tools" text={project.tools.join(", ")} />
+          <Tools tools={project.tools} />
           <Button
             className={buttonStyle.gradientButton}
             component={project.link ? "a" : "button"}
@@ -176,6 +187,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             disabled={!project.link}
             target="_blank"
             w={{ base: "100%", sm: "fit-content" }}
+            mt={16}
             px={30}
             py={0}
           >
@@ -187,9 +199,37 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
   );
 };
 
+const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
+  const isTablet = useMediaQuery("(max-width: 768px)");
+  return (
+    <Stack gap={10}>
+      <Text fz={16} fw={500} c="primary-gray.1">
+        Tools :
+      </Text>
+      <Group justify={isTablet ? "center" : "flex-start"}>
+        {tools.map((tool, index) => (
+          <Image
+            key={index}
+            src={`/images/${tool}.webp`}
+            w={35}
+            h={35}
+            alt=""
+            fit="cover"
+            bg="white"
+            style={{
+              borderRadius: "50%",
+              boxShadow: "0px 0px 3px #ffffff",
+            }}
+          />
+        ))}
+      </Group>
+    </Stack>
+  );
+};
+
 const TitleWithText = ({ title, text }: { title: string; text: string }) => {
   return (
-    <Text fz={{ base: 12, sm: 16 }} fs="italic" c="primary-gray.3">
+    <Text fz={16} fs="italic" c="primary-gray.3">
       <Text span fw={500} fs="normal" c="primary-gray.1">
         {title}:{" "}
       </Text>{" "}
