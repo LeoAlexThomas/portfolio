@@ -1,9 +1,9 @@
 .gradientButton {
   background-image: linear-gradient(
     to right,
-    #111f11 0%,
-    #afafaf 51%,
-    #111f11 100%
+    #4dabf7 0%,
+    #d0ebff 51%,
+    #4dabf7 100%
   );
   margin: 10px;
   padding: 15px 45px;
@@ -23,5 +23,5 @@
   text-decoration: none;
 }
 .gradientButton:disabled {
-  background: #afafaf;
+  background: #afafaf90;
 }
