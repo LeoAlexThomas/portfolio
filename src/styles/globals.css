@@ -3,7 +3,8 @@
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Roboto", "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
-    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New",
+    "Noto Serif", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

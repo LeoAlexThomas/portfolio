@@ -170,8 +170,9 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             }}
           />
           <Text
+            ff="Noto Serif"
             fz={{ base: 20, sm: 24 }}
-            fw={500}
+            fw={700}
             lh="1.25"
             c="primary-gray.9"
             lineClamp={2}
@@ -220,7 +221,7 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
   const isTablet = useMediaQuery("(max-width: 768px)");
   return (
     <Stack gap={10}>
-      <Text fz={20} fw={500} c="primary-gray.8">
+      <Text ff="Noto Serif" fz={20} fw={500} c="primary-gray.8">
         Tools :
       </Text>
       <Group justify={isTablet ? "center" : "flex-start"}>
@@ -247,7 +248,14 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
 const TitleWithText = ({ title, text }: { title: string; text: string }) => {
   return (
     <Text fz={16} fs="italic" c="primary-gray.6">
-      <Text span fz={20} fw={500} fs="normal" c="primary-gray.8">
+      <Text
+        span
+        ff="Noto Serif"
+        fz={20}
+        fw={500}
+        fs="normal"
+        c="primary-gray.8"
+      >
         {title}:{" "}
       </Text>{" "}
       {text}

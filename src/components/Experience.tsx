@@ -131,8 +131,9 @@ const ExperienceCard = ({
             />
             <Stack gap={8} py={{ base: 12, sm: 20 }} px={{ base: 12, sm: 8 }}>
               <Text
+                ff="Noto Serif"
                 fz={{ base: 20, sm: 24 }}
-                fw={500}
+                fw={700}
                 lh="1.25"
                 c="primary-gray.9"
                 lineClamp={2}
@@ -140,6 +141,7 @@ const ExperienceCard = ({
                 {experience.company}{" "}
                 <Text
                   span
+                  ff="Roboto"
                   fz={14}
                   c="primary-gray.6"
                   fs="italic"
@@ -156,7 +158,7 @@ const ExperienceCard = ({
                 lh="1.25"
                 c="primary-gray.6"
               >
-                <Text span fw={800} c="primary-gray.8">
+                <Text span ff="Noto Serif" fw={800} c="primary-gray.8">
                   Job Description:
                 </Text>{" "}
                 {experience.description}

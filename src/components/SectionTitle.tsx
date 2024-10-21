@@ -3,7 +3,8 @@ import { Text } from "@mantine/core";
 const SectionTitle = ({ title }: { title: string }) => {
   return (
     <Text
-      fz={{ base: 20, sm: 44 }}
+      ff="Noto Serif"
+      fz={{ base: 28, sm: 44 }}
       fw={700}
       lh="1.25"
       ta="center"

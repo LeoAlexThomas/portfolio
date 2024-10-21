@@ -56,6 +56,7 @@ const PersonalInfo = () => {
               <ProfileImage display={{ base: "flex", sm: "none" }} />
               <Box>
                 <Text
+                  ff="Noto Serif"
                   fz={{ base: 24, sm: 48 }}
                   fw={800}
                   lh="1.25"
@@ -66,6 +67,7 @@ const PersonalInfo = () => {
                 </Text>
                 <Space h={12} />
                 <Text
+                  ff="Noto Serif"
                   fz={{ base: 18, sm: 20 }}
                   fw={800}
                   lh="1.25"
