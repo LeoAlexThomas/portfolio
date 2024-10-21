@@ -4,14 +4,14 @@ import { socialLinks } from "@/common";
 const Footer = () => {
   return (
     <Box
-      bg="#00000050"
+      bg="#afafaf50"
       style={{
         boxShadow: "4px 0px 12px #00000050",
       }}
       mt={40}
     >
       <Box maw={1200} mx="auto" px={30} py={18}>
-        <Text fz={{ base: 20, sm: 26 }} fw={500} ta="center" c="white">
+        <Text fz={{ base: 20, sm: 26 }} fw={500} ta="center" c="primary-gray.9">
           Get in touch
         </Text>
         <Space h={12} />

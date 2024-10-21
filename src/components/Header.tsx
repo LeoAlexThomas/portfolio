@@ -60,11 +60,11 @@ const Header = () => {
   return (
     <Box
       w="100%"
-      bg="#FFFFFF20"
+      bg="#00000050"
       py={12}
       h={60}
       style={{
-        boxShadow: "0px 4px 12px #ffffff80",
+        boxShadow: "0px 4px 12px #afafaf",
         backdropFilter: "blur(5px)",
         position: "fixed",
         top: 0,
@@ -112,13 +112,12 @@ const MobileDrawer = ({
       opened={isOpen}
       onClose={onClose}
       withCloseButton={false}
+      bg="white"
       styles={{
         body: {
           padding: 0,
           marginTop: 10,
           height: "100%",
-          backgroundImage:
-            "linear-gradient(0,  var(--mantine-color-primary-gray-7), black)",
         },
       }}
     >
@@ -131,7 +130,7 @@ const MobileDrawer = ({
             alignSelf: "flex-end",
           }}
         >
-          <CloseButton onClick={onClose} c="primary-gray.3" />
+          <CloseButton onClick={onClose} c="primary-gray.8" />
         </Flex>
         {links.map((link, index) => (
           <Fragment key={index}>
@@ -169,7 +168,7 @@ const MobileHeaderLink = ({
       onClick={onClicked}
       w="100%"
       p={16}
-      c="primary-gray.1"
+      c="primary-gray.8"
     >
       {text}
     </Box>

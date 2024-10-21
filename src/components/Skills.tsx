@@ -39,7 +39,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "NodeJS",
-    url: "/images/nodejs.svg",
+    url: "/images/nodejs_logo.webp",
   },
 ];
 

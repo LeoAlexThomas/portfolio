@@ -1,17 +1,18 @@
 .gradientButton {
   background-image: linear-gradient(
     to right,
-    #16222a 0%,
-    #3a6073 51%,
-    #16222a 100%
+    #111f11 0%,
+    #afafaf 51%,
+    #111f11 100%
   );
+  margin: 10px;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eeeeee50;
+  box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
 }
@@ -22,5 +23,5 @@
   text-decoration: none;
 }
 .gradientButton:disabled {
-  background: #ffffff50;
+  background: #afafaf;
 }

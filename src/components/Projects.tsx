@@ -167,15 +167,15 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
               display: isTablet ? "flex" : "none",
             }}
           />
-          <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25" c="primary-gray.1">
+          <Text fz={{ base: 16, sm: 24 }} fw={500} lh="1.25" c="primary-gray.9">
             {project.title}{" "}
             {project.highlight && (
-              <Text span fz={14} c="primary-gray.3" fs="italic">
+              <Text span fz={14} c="primary-gray.6" fs="italic">
                 ( {project.highlight} )
               </Text>
             )}
           </Text>
-          <Text fz={{ base: 12, sm: 16 }} lh="1.4" c="primary-gray.2">
+          <Text fz={{ base: 12, sm: 16 }} lh="1.4" c="primary-gray.6">
             {project.description}
           </Text>
           <TitleWithText title="Organization" text={project.organization} />
@@ -203,7 +203,7 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
   const isTablet = useMediaQuery("(max-width: 768px)");
   return (
     <Stack gap={10}>
-      <Text fz={16} fw={500} c="primary-gray.1">
+      <Text fz={16} fw={500} c="primary-gray.8">
         Tools :
       </Text>
       <Group justify={isTablet ? "center" : "flex-start"}>
@@ -229,8 +229,8 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
 
 const TitleWithText = ({ title, text }: { title: string; text: string }) => {
   return (
-    <Text fz={16} fs="italic" c="primary-gray.3">
-      <Text span fw={500} fs="normal" c="primary-gray.1">
+    <Text fz={16} fs="italic" c="primary-gray.6">
+      <Text span fw={500} fs="normal" c="primary-gray.8">
         {title}:{" "}
       </Text>{" "}
       {text}

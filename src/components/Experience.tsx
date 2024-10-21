@@ -134,10 +134,10 @@ const ExperienceCard = ({
                 fz={{ base: 16, sm: 24 }}
                 fw={500}
                 lh="1.25"
-                c="primary-gray.1"
+                c="primary-gray.9"
               >
                 {experience.company}{" "}
-                <Text span fz={12} c="primary-gray.3" fs="italic">
+                <Text span fz={12} c="primary-gray.6" fs="italic">
                   ( {experience.exp} )
                 </Text>
               </Text>
@@ -145,9 +145,9 @@ const ExperienceCard = ({
                 fz={{ base: 12, sm: 16 }}
                 fw={400}
                 lh="1.25"
-                c="primary-gray.2"
+                c="primary-gray.6"
               >
-                <Text span fw={800}>
+                <Text span fw={800} c="primary-gray.8">
                   Job Description:
                 </Text>{" "}
                 {experience.description}
@@ -156,11 +156,11 @@ const ExperienceCard = ({
                 fz={{ base: 12, sm: 16 }}
                 fw={500}
                 lh="1.25"
-                c="primary-gray.4"
+                c="primary-gray.8"
               >
                 {experience.position}
               </Text>
-              <Group gap={8} lh="1.12" c="primary-gray.2">
+              <Group gap={8} lh="1.12" c="primary-gray.8">
                 <Text fz={12} fw={500} fs="italic">
                   {experience.startDate}
                 </Text>

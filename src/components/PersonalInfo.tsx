@@ -60,7 +60,7 @@ const PersonalInfo = () => {
                   fw={800}
                   lh="1.25"
                   ta={{ base: "center", xs: "start" }}
-                  c="primary-gray.1"
+                  c="primary-gray.8"
                 >
                   LEO ALEX THOMAS
                 </Text>
@@ -110,14 +110,14 @@ const PersonalInfo = () => {
                       borderRadius: "50%",
                       overflow: "hidden",
                     }}
-                    w={{ base: 30, sm: 55 }}
-                    h={{ base: 30, sm: 55 }}
+                    w={{ base: 30, sm: 45 }}
+                    h={{ base: 30, sm: 45 }}
                   >
                     <Image
                       src="/images/github_logo.webp"
                       alt="github"
-                      width={isTablet ? 30 : 55}
-                      height={isTablet ? 30 : 55}
+                      width={isTablet ? 30 : 45}
+                      height={isTablet ? 30 : 45}
                     />
                   </Box>
                 </a>
@@ -157,8 +157,7 @@ const ProfileImage = (props?: CenterProps) => {
       <Avatar
         size={isTablet ? 180 : 300}
         style={{
-          border: "2px solid #ffffff",
-          boxShadow: "0px 0px 5px 5px #ffffff80",
+          boxShadow: "0px 0px 15px #00000030",
         }}
       >
         <Image

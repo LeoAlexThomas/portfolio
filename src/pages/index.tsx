@@ -28,7 +28,7 @@ export default function Home() {
       <Box
         style={{
           backgroundImage:
-            "linear-gradient(0,  var(--mantine-color-primary-gray-7), #181818)",
+            "linear-gradient(to top,  var(--mantine-color-primary-gray-1), #ffffff)",
         }}
       >
         <Header />
