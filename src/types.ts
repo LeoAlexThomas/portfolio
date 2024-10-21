@@ -18,6 +18,7 @@ export interface ExperienceInterface {
   startDate: string;
   endDate: string;
   exp: string;
+  link: string;
 }
 
 export interface ProjectInterface {
