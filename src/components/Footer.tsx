@@ -1,42 +1,52 @@
-import { Text, Group, Image, Box } from "@mantine/core";
+import { Text, Group, Image, Box, Space } from "@mantine/core";
 import { socialLinks } from "@/common";
 
 const Footer = () => {
   return (
     <Box
-      bg="white"
+      bg="#afafaf50"
       style={{
-        boxShadow: "4px 0px 12px #00000020",
+        boxShadow: "4px 0px 12px #00000050",
       }}
       mt={40}
     >
       <Box maw={1200} mx="auto" px={30} py={18}>
-        <Group justify="space-between" align="center">
-          <Text
-            fz={{ base: 16, sm: 20 }}
-            component="a"
-            href="mailto:leoalex960@gmail.com"
-          >
-            leoalex960@gmail.com
-          </Text>
-          <Group gap={12} justify="center">
-            <a href={socialLinks.github} target="_blank">
+        <Text fz={{ base: 20, sm: 26 }} fw={500} ta="center" c="primary-gray.9">
+          Get in touch
+        </Text>
+        <Space h={12} />
+        <Group gap={12} justify="center">
+          <a href={"mailto:leoalex960@gmail.com"} target="_blank">
+            <Image
+              src="/images/gmail_logo_footer.webp"
+              alt="gmail"
+              w={35}
+              h={35}
+            />
+          </a>
+          <a href={socialLinks.github} target="_blank">
+            <Box
+              style={{
+                borderRadius: "50%",
+                overflow: "hidden",
+              }}
+            >
               <Image
-                src="/images/github_logo.webp"
+                src="/images/github_logo_footer.webp"
                 alt="github"
                 w={30}
                 h={30}
               />
-            </a>
-            <a href={socialLinks.linkedIn} target="_blank">
-              <Image
-                src="/images/linkedin_logo.webp"
-                alt="linkedIn"
-                w={30}
-                h={30}
-              />
-            </a>
-          </Group>
+            </Box>
+          </a>
+          <a href={socialLinks.linkedIn} target="_blank">
+            <Image
+              src="/images/linkedin_logo_footer.webp"
+              alt="linkedIn"
+              w={40}
+              h={40}
+            />
+          </a>
         </Group>
       </Box>
     </Box>

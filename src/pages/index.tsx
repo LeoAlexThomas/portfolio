@@ -28,11 +28,11 @@ export default function Home() {
       <Box
         style={{
           backgroundImage:
-            "linear-gradient(0,  var(--mantine-color-primary-gray-2), #FFFFFF)",
+            "linear-gradient(to top,  var(--mantine-color-primary-gray-1), #ffffff)",
         }}
       >
         <Header />
-        <Space h={20} />
+        <Space h={100} />
         <Stack
           maw={1200}
           mx="auto"
@@ -44,8 +44,8 @@ export default function Home() {
           }}
         >
           <PersonalInfo />
-          <SkillContent />
           <Experiences />
+          <SkillContent />
           <Projects />
         </Stack>
         <Footer />

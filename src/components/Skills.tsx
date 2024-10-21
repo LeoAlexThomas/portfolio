@@ -1,5 +1,5 @@
 import { SkillInterface } from "@/types";
-import { Stack, Text, Grid, Image } from "@mantine/core";
+import { Stack, Grid, Image, Space } from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
@@ -11,7 +11,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "TypeScript",
-    url: "/images/typescript_logo.webp",
+    url: "/images/typeScript.webp",
   },
   {
     label: "JavaScript",
@@ -19,7 +19,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "Flutter",
-    url: "/images/flutter_logo.webp",
+    url: "/images/flutter.webp",
   },
   {
     label: "GitHub",
@@ -39,7 +39,7 @@ const skills: SkillInterface[] = [
   },
   {
     label: "NodeJS",
-    url: "/images/nodeJS.webp",
+    url: "/images/nodejs_logo.webp",
   },
 ];
 
@@ -58,7 +58,8 @@ const SkillContent = () => {
   return (
     <Stack gap={30} id={HeaderEnum.skills}>
       <SectionTitle title="Skills" />
-      <Grid gutter="md" justify="space-evenly">
+      <Space h={0} display={{ base: "none", sm: "flex" }} />
+      <Grid gutter="xl" justify="center">
         {skills.map((skill, index) => (
           <Grid.Col key={index} span="content">
             <motion.div
@@ -83,6 +84,7 @@ const SkillContent = () => {
                   fit="contain"
                   mih={50}
                   mah={50}
+                  bg="white"
                 />
                 {/* <Text fz={{ base: 12, sm: 18 }} lh="1.25">
                   {skill.label}

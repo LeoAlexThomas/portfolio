@@ -1,4 +1,13 @@
-import { Avatar, Box, Burger, Drawer, Group, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  Burger,
+  CloseButton,
+  Drawer,
+  Flex,
+  Group,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { HeaderEnum } from "./utils";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
@@ -51,10 +60,12 @@ const Header = () => {
   return (
     <Box
       w="100%"
-      bg="white"
+      bg="#00000050"
       py={12}
+      h={60}
       style={{
-        boxShadow: "0px 4px 12px #00000020",
+        boxShadow: "0px 4px 12px #afafaf",
+        backdropFilter: "blur(5px)",
       }}
     >
       <MobileDrawer
@@ -63,25 +74,21 @@ const Header = () => {
         links={navLinks}
         onLinkPressed={handleLinkPress}
       />
-      <Group w="100%" maw={1200} mx="auto" justify="space-between" px={30}>
-        <Group visibleFrom="sm" gap={12}>
+      <Group
+        w="100%"
+        h="100%"
+        maw={1200}
+        mx="auto"
+        justify={isTablet ? "flex-start" : "space-between"}
+        px={30}
+      >
+        <Group visibleFrom="sm" gap={28} w="100%" justify="center">
           {links}
         </Group>
-        <Burger hiddenFrom="sm" onClick={onOpen} />
-        <Box
-          style={{
-            border: "1px solid",
-            borderColor: "#00000050",
-            borderRadius: "100%",
-            boxShadow: "0px 0px 6px #00000040",
-          }}
-        >
-          <Avatar
-            name="Leo Alex Thomas"
-            alt="profilePic"
-            size={isTablet ? "md" : "lg"}
-          />
-        </Box>
+        <Burger hiddenFrom="sm" onClick={onOpen} color="white" />
+        {/* <Text hiddenFrom="sm" fz={24} fw={700} lh="1.25" c="white">
+          Leo Alex
+        </Text> */}
       </Group>
     </Box>
   );
@@ -102,26 +109,26 @@ const MobileDrawer = ({
     <Drawer
       opened={isOpen}
       onClose={onClose}
+      bg="white"
       styles={{
         body: {
           padding: 0,
           marginTop: 10,
+          height: "100%",
         },
       }}
     >
-      <Stack>
-        {links.map((link, index) => (
-          <Fragment key={index}>
-            <MobileHeaderLink
-              text={link.label}
-              onClicked={() => {
-                onClose();
-                onLinkPressed(link);
-              }}
-            />
-          </Fragment>
-        ))}
-      </Stack>
+      {links.map((link, index) => (
+        <Fragment key={index}>
+          <MobileHeaderLink
+            text={link.label}
+            onClicked={() => {
+              onClose();
+              onLinkPressed(link);
+            }}
+          />
+        </Fragment>
+      ))}
     </Drawer>
   );
 };
@@ -133,19 +140,16 @@ const MobileHeaderLink = ({
   text: string;
   onClicked: () => void;
 }) => {
-  const { ref: hoverRef, hovered: isHovered } = useHover();
   return (
     <Box
-      ref={hoverRef}
       style={{
         cursor: "pointer",
-        boxShadow: isHovered
-          ? "0px 0px 4px var(--mantine-color-primary-gray-8)"
-          : "none",
+        boxShadow: "0px 2px var(--mantine-color-primary-gray-4)",
       }}
       onClick={onClicked}
       w="100%"
       p={16}
+      c="primary-gray.8"
     >
       {text}
     </Box>
@@ -164,10 +168,10 @@ const HeaderLink = ({
   return (
     <Text
       ref={hoverRef}
-      fz={16}
+      fz={20}
       lh="1.25"
       td={isHovered ? "underline" : "none"}
-      c="#000000"
+      c="#ffffff"
       style={{
         cursor: "pointer",
       }}

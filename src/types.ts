@@ -1,3 +1,5 @@
+import { SkillToolEnum } from "./components/utils";
+
 export interface SocialMediaLink {
   github: string;
   linkedIn: string;
@@ -16,13 +18,15 @@ export interface ExperienceInterface {
   startDate: string;
   endDate: string;
   exp: string;
+  link: string;
 }
 
 export interface ProjectInterface {
   title: string;
   description: string;
-  tools: string[];
+  tools: SkillToolEnum[];
   organization: string;
   highlight?: string;
   link?: string;
+  image: string;
 }
