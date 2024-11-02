@@ -57,7 +57,7 @@ const PersonalInfo = () => {
             <Box>
               <Text
                 ff="Noto Serif"
-                fz={{ base: 24, sm: 48 }}
+                fz={{ base: 32, sm: 48 }}
                 fw={800}
                 lh="1.25"
                 ta={{ base: "center", xs: "start" }}
@@ -68,7 +68,7 @@ const PersonalInfo = () => {
               <Space h={12} />
               <Text
                 ff="Noto Serif"
-                fz={{ base: 18, sm: 20 }}
+                fz={{ base: 22, sm: 26 }}
                 fw={800}
                 lh="1.25"
                 ta={{ base: "center", xs: "start" }}
