@@ -36,7 +36,7 @@ export default function Home() {
         <Stack
           maw={1200}
           mx="auto"
-          px={30}
+          px={{ base: 16, sm: 30 }}
           pb={20}
           gap={isTablet ? 60 : 120}
           style={{
