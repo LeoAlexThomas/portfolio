@@ -1,4 +1,4 @@
-import { Button, Group, Image, Space, Stack, Text } from "@mantine/core";
+import { Button, Group, Space, Stack, Text } from "@mantine/core";
 import { HeaderEnum, SkillToolEnum } from "./utils";
 import SectionTitle from "./SectionTitle";
 import { ProjectInterface } from "@/types";
@@ -7,6 +7,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import GradientBorderBox from "./GradientBorderBox";
 import buttonStyle from "../styles/button.module.css";
+import Image from "next/image";
 
 const projects: ProjectInterface[] = [
   {
@@ -150,10 +151,13 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
         <Image
           src={project.image}
           alt={project.title}
+          width={350}
+          height={200}
+          priority={false}
           style={{
-            aspectRatio: 16 / 9,
+            maxWidth: "100%",
+            height: "auto",
             borderRadius: 8,
-            maxWidth: 350,
             display: isTablet ? "none" : "block",
             border: "1px solid #00000020",
           }}
@@ -162,9 +166,13 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
           <Image
             src={project.image}
             alt={project.title}
+            width={350}
+            height={200}
+            priority={false}
             style={{
+              maxWidth: "100%",
+              height: "auto",
               borderRadius: 8,
-              maxWidth: 350,
               display: isTablet ? "flex" : "none",
               border: "1px solid #00000020",
             }}
@@ -229,12 +237,14 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
           <Image
             key={index}
             src={`/images/${tool}.webp`}
-            w={35}
-            h={35}
+            width={35}
+            height={35}
             alt=""
-            fit="cover"
-            bg="white"
+            objectFit="cover"
             style={{
+              maxWidth: "100%",
+              height: "auto",
+              backgroundColor: "white",
               borderRadius: "50%",
               boxShadow: "0px 0px 3px #ffffff",
             }}
