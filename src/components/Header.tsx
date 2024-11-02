@@ -1,11 +1,11 @@
 import {
   Box,
   Burger,
-  CloseButton,
-  Drawer,
-  Flex,
+  Center,
   Group,
-  Stack,
+  Menu,
+  MenuDropdown,
+  MenuItem,
   Text,
 } from "@mantine/core";
 import { HeaderEnum } from "./utils";
@@ -39,8 +39,6 @@ const navLinks: NavLink[] = [
 
 const Header = () => {
   const router = useRouter();
-  const [opened, { open: onOpen, close: onClose }] = useDisclosure();
-  const isTablet = useMediaQuery("(max-width: 768px)");
 
   const handleLinkPress = (link: NavLink) => {
     if (link.id === HeaderEnum.home) {
@@ -57,79 +55,69 @@ const Header = () => {
     </Fragment>
   ));
 
-  return (
-    <Box
-      w="100%"
-      bg="#00000050"
-      py={12}
-      h={60}
-      style={{
-        boxShadow: "0px 4px 12px #afafaf",
-        backdropFilter: "blur(5px)",
-      }}
-    >
-      <MobileDrawer
-        isOpen={opened}
-        onClose={onClose}
-        links={navLinks}
-        onLinkPressed={handleLinkPress}
+  const mobileLinks = navLinks.map((link, index) => (
+    <MenuItem key={index}>
+      <MobileHeaderLink
+        text={link.label}
+        onClicked={() => {
+          handleLinkPress(link);
+        }}
       />
-      <Group
-        w="100%"
-        h="100%"
-        maw={1200}
-        mx="auto"
-        justify={isTablet ? "flex-start" : "space-between"}
-        px={30}
-      >
-        <Group visibleFrom="sm" gap={28} w="100%" justify="center">
-          {links}
-        </Group>
-        <Burger hiddenFrom="sm" onClick={onOpen} color="white" />
-        {/* <Text hiddenFrom="sm" fz={24} fw={700} lh="1.25" c="white">
-          Leo Alex
-        </Text> */}
-      </Group>
-    </Box>
-  );
-};
+    </MenuItem>
+  ));
 
-const MobileDrawer = ({
-  isOpen,
-  onClose,
-  links,
-  onLinkPressed,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-  links: NavLink[];
-  onLinkPressed: (link: NavLink) => void;
-}) => {
   return (
-    <Drawer
-      opened={isOpen}
-      onClose={onClose}
-      bg="white"
-      styles={{
-        body: {
-          padding: 0,
-          marginTop: 10,
-          height: "100%",
-        },
-      }}
-    >
-      {links.map((link, index) => (
-        <Fragment key={index}>
-          <MobileHeaderLink
-            text={link.label}
-            onClicked={() => {
-              onClose();
-              onLinkPressed(link);
+    <>
+      <Box
+        w="100%"
+        bg="#0275b4"
+        py={12}
+        h={60}
+        style={{
+          boxShadow: "0px 4px 12px #afafaf",
+        }}
+      >
+        <Group
+          w="100%"
+          h="100%"
+          maw={1200}
+          mx="auto"
+          justify="space-between"
+          px={{ base: 16, sm: 30 }}
+          wrap="nowrap"
+        >
+          <Center
+            style={{
+              border: "2px solid white",
+              borderRadius: "50%",
             }}
-          />
-        </Fragment>
-      ))}
-    </Drawer>
+            p={8}
+            pt={12}
+          >
+            <Text ff="chomsky" fz={30} lh="0.65" c="white">
+              L
+            </Text>
+          </Center>
+          <Group visibleFrom="sm" gap={28} justify="center">
+            {links}
+          </Group>
+          <Menu
+            width={300}
+            radius={12}
+            shadow="xl"
+            transitionProps={{
+              duration: 200,
+              transition: "pop",
+            }}
+          >
+            <Menu.Target>
+              <Burger hiddenFrom="sm" color="white" />
+            </Menu.Target>
+            <MenuDropdown>{mobileLinks}</MenuDropdown>
+          </Menu>
+        </Group>
+      </Box>
+    </>
   );
 };
 
@@ -142,10 +130,8 @@ const MobileHeaderLink = ({
 }) => {
   return (
     <Box
-      style={{
-        cursor: "pointer",
-        boxShadow: "0px 2px var(--mantine-color-primary-gray-4)",
-      }}
+      fz={18}
+      fw={600}
       onClick={onClicked}
       w="100%"
       p={16}
