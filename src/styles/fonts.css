@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Chomsky";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap; /* Use swap to prevent render-blocking */
+  src: local("Chomsky"),
+    url("https://fonts.cdnfonts.com/s/29135/Chomsky.woff") format("woff");
+}
