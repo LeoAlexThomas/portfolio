@@ -153,7 +153,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
           alt={project.title}
           width={350}
           height={200}
-          priority={false}
+          priority
           style={{
             maxWidth: "100%",
             height: "auto",
@@ -168,7 +168,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
             alt={project.title}
             width={350}
             height={200}
-            priority={false}
+            priority
             style={{
               maxWidth: "100%",
               height: "auto",
@@ -241,6 +241,7 @@ const Tools = ({ tools }: { tools: SkillToolEnum[] }) => {
             height={35}
             alt=""
             objectFit="cover"
+            priority
             style={{
               maxWidth: "100%",
               height: "auto",
