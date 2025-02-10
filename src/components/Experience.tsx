@@ -27,7 +27,7 @@ const experiences: ExperienceInterface[] = [
     description:
       "Create mobile applications that lets users control and monitor their Casting Machine by using wifi / bluetooth connection.",
     startDate: "16 JANUARY 2021",
-    endDate: "30 SEPTEMBER 2024",
+    endDate: "30 SEPTEMBER 2021",
     exp: "9 months",
     link: "http://www.swamequip.in/",
   },
