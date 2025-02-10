@@ -92,7 +92,7 @@ const PersonalInfo = () => {
             <Button
               className={buttonStyle.gradientButton}
               component="a"
-              href="https://docs.google.com/document/d/1URW4J0ghk0hcDxApqMUHAkIz1sIj_Zw-b-XWhAp-NgE/edit?usp=sharing"
+              href="https://drive.google.com/file/d/1Hapcd02ZqOiMVxdxCSranwwZe97FI1TE/view?usp=sharing"
               download
               target="_blank"
               size={isMobile ? "md" : "lg"}
