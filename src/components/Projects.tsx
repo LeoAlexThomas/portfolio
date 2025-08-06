@@ -74,7 +74,7 @@ const projects: ProjectInterface[] = [
       SkillToolEnum.dynamicLinks,
       SkillToolEnum.flutterNotifications,
     ],
-    link: "https://play.google.com/store/apps/details?id=club.farmyng.socialfarming.agriculture.community&pcampaignid=web_share",
+    // link: "https://play.google.com/store/apps/details?id=club.farmyng.socialfarming.agriculture.community&pcampaignid=web_share",
     image: "/images/farmyng.webp",
   },
   {
