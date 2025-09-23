@@ -25,7 +25,7 @@ const projects: ProjectInterface[] = [
       SkillToolEnum.netlify,
     ],
     organization: "My Self",
-    link: "https://smart-tasks-manager.netlify.app/",
+    // link: "https://smart-tasks-manager.netlify.app/",
     image: "/images/task-manager.webp",
   },
   {
@@ -115,7 +115,7 @@ const fadeInAnimation = {
 
 const Projects = () => {
   return (
-    <Stack gap={30} id={HeaderEnum.project}>
+    <Stack gap={30}>
       <SectionTitle title="Projects" />
       <Space h={0} display={{ base: "none", sm: "flex" }} />
       {projects.map((project, index) => {
